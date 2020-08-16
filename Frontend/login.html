@@ -6,11 +6,16 @@
     <title>Online Exam App</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
 </head>
 <body>
-    <div class="box">
+    
+    <div id="homepage">
+        <button onclick="javascript:login('show');">Login</button>
+        </div>
+    <div class="box" id="popup">
+        <div class="topright"><a  href="javascript:login('hide');">X</a></div>
         <h2>Login</h2>
+        
         <form>
             <div>
                 
@@ -27,6 +32,7 @@
 
             
             <input type="submit" name="" value="Login">
+
             
             
             
@@ -36,12 +42,23 @@
 
             <span class="forgot">
                 <a href=forgotpass.html>Forgot password?</a>
-            </span>
-            
+            </span>          
 
            
 
         </form>
     </div>
+    <script language="JavaScript" type="text/javascript">
+        function login(showhide){
+        if(showhide == "show"){
+            document.getElementById('popup').style.visibility="visible";
+            document.getElementById('homepage').style.visibility="hidden";
+        }else if(showhide == "hide"){
+            document.getElementById('popup').style.visibility="hidden"; 
+            document.getElementById('homepage').style.visibility="visible";
+ 
+        }
+        }
+    </script>
 </body>
 </html>

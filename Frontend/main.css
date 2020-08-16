@@ -67,3 +67,28 @@ body{
    border-bottom:2px solid royalblue;
 
 }
+#popup{
+    visibility: hidden;
+    
+
+}
+
+.topright {
+    position: absolute;
+    top: 17px;
+    right: 22px;
+    font-size:20px;
+    text-decoration:none;
+    font-weight: 700;
+    
+    
+  }
+  .topright a{
+      color: rgb(207, 188, 188);
+      text-decoration:none;
+  }
+  .topright a:hover{
+      color: rgb(236, 37, 97);
+      
+
+  }
