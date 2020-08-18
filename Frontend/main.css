@@ -195,5 +195,19 @@ body{
       display:flex;
       align-items:center;
       justify-content:center;
+      padding-top: 50px;
   
   }
+    /*for clearedlevel1.html*/
+    h1{
+      color:#008CBA;
+      text-align:center;
+      padding-top: 50px;
+  
+    }
+    h3{
+      text-align:center;
+      padding-top: 20px;
+      line-height: 20px;
+      margin:0;
+    }
