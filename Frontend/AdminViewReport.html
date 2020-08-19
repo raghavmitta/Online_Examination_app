@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0%;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 1.1%;
+            overflow: hidden;
+            background-color: rgb(5, 66, 134);
+            }
+
+        li {
+            float: right;
+            }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-size: 150%;
+            }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+            }
+
+        div.card {
+            margin-top: 100px;
+            margin-left: 100px;
+            width: 350px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            float:left;
+            }
+
+        div.container {
+            padding: 10px;
+            }
+
+        H2.dashboard{
+            margin-top: 0%;
+            margin-bottom: 0%;
+            background-color: rgb(23, 162, 197); 
+            padding: 7%; 
+            color: white;
+            text-align: center;
+            }
+
+        div.dashboardOptions{
+            background-color: rgb(5, 66, 134);
+            padding: 2%;
+            }
+
+        p{
+            margin:0%;
+            padding:4%;
+            }
+
+        a{
+            text-decoration: none;
+            color: white;
+            }
+
+        .submitButton{
+            padding:1%;
+            width: 30%;
+            background-color: rgb(5, 66, 134);
+            color:white;
+            border: none;
+        }
+        select{
+            padding:1%;
+            margin:2%
+        }
+        table{
+            margin:1%;
+            padding-top: 30px;
+            border: 1px solid rgb(23, 162, 197);
+            border-collapse: collapse;
+            width:98%
+        }
+        td, tr {
+            border: 1px solid rgb(23, 162, 197);
+            padding: 1%;
+            border-collapse: collapse;
+            text-align: center;
+ 
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#profile">User Profile</a></li>
+        <li><a class="active" href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#home">Home</a></li>
+        <li style= "float:left;"> sample image here</li>
+      </ul>
+    <div class="card">
+        <div class="header">
+            <H2 class="dashboard">ADMIN DASHBOARD</H2>
+        </div>
+      
+        <div class="dashboardOptions">
+            <p> <a href="">View All Questions</a> </p>
+            <p> <a href="">Add Questions</a> </p>
+            <p> <a href="">Remove Questions</a> </p>
+            <p> <a href="">View Student Report</a> </p>
+        </div>
+    </div>
+    <div Style="float: left; width: 50%; margin-top:100px; padding-left:5%">
+        <h2 style="margin-bottom: 3%;">Delete Questions</h2>
+        <form action="">
+        Technology
+        <select name="" id="">
+            <option value="Java">Java</option>
+            <option value="">.Net</option>
+            <option value="">TSL</option>
+            <option value="">Mainframe</option>
+        </select>
+        <br>
+        State
+        <select name="" id="">
+            <option value="Java">Java</option>
+            <option value="">.Net</option>
+            <option value="">TSL</option>
+            <option value="">Mainframe</option>
+        </select>
+        <br>
+        City
+        <select name="" id="">
+            <option value="Java">Java</option>
+            <option value="">.Net</option>
+            <option value="">TSL</option>
+            <option value="">Mainframe</option>
+        </select>
+        <br>
+        level
+        <select name="" id="">
+            <option value="Java">Java</option>
+            <option value="">.Net</option>
+            <option value="">TSL</option>
+            <option value="">Mainframe</option>
+        </select>
+        <br>
+        Marks
+        <select name="" id="">
+            <option value="Java">Java</option>
+            <option value="">.Net</option>
+            <option value="">TSL</option>
+            <option value="">Mainframe</option>
+        </select>
+        <br>
+
+          <button class="submitButton">View Report</button>
+        </form>
+    </div>
+    <div>
+        <table >
+            <tr>
+              <th>Name</th>
+              <th>Technology</th>
+              <th>Email</th>
+              <th>Number</th>
+              <th>Current Level</th>
+              <th>Level1</th>
+              <th>level2</th>
+              <th>level3</th>
+              <th>State</th>
+              <th>City</th>
+            </tr>
+            <tr>
+                <td>Jill Smith</td>
+                <td>Java</td>
+                <td>jill.smith@lntinfotech</td>
+                <td>7579414700</td>
+                <td>2</td>
+                <td>100</td>
+                <td>40</td>
+                <td>N/A</td>
+                <td>UP</td>
+                <td>Lucknow</td>
+              </tr>
+              <tr>
+                <td>Jill Smith</td>
+                <td>Java</td>
+                <td>jill.smith@lntinfotech</td>
+                <td>7579414700</td>
+                <td>2</td>
+                <td>100</td>
+                <td>40</td>
+                <td>N/A</td>
+                <td>UP</td>
+                <td>Lucknow</td>
+              </tr>
+              <tr>
+                <td>Jill Smith</td>
+                <td>Java</td>
+                <td>jill.smith@lntinfotech</td>
+                <td>7579414700</td>
+                <td>2</td>
+                <td>100</td>
+                <td>40</td>
+                <td>N/A</td>
+                <td>UP</td>
+                <td>Lucknow</td>
+              </tr>
+              <tr>
+                <td>Jill Smith</td>
+                <td>Java</td>
+                <td>jill.smith@lntinfotech</td>
+                <td>7579414700</td>
+                <td>2</td>
+                <td>100</td>
+                <td>40</td>
+                <td>N/A</td>
+                <td>UP</td>
+                <td>Lucknow</td>
+              </tr>
+              <tr>
+                <td>Jill Smith</td>
+                <td>Java</td>
+                <td>jill.smith@lntinfotech</td>
+                <td>7579414700</td>
+                <td>2</td>
+                <td>100</td>
+                <td>40</td>
+                <td>N/A</td>
+                <td>UP</td>
+                <td>Lucknow</td>
+              </tr>
+              <tr>
+                <td>Jill Smith</td>
+                <td>Java</td>
+                <td>jill.smith@lntinfotech</td>
+                <td>7579414700</td>
+                <td>2</td>
+                <td>100</td>
+                <td>40</td>
+                <td>N/A</td>
+                <td>UP</td>
+                <td>Lucknow</td>
+              </tr>
+              <tr>
+                <td>Jill Smith</td>
+                <td>Java</td>
+                <td>jill.smith@lntinfotech</td>
+                <td>7579414700</td>
+                <td>2</td>
+                <td>100</td>
+                <td>40</td>
+                <td>N/A</td>
+                <td>UP</td>
+                <td>Lucknow</td>
+              </tr>
+          </table> 
+    </div>
+</body>
+</html>
+
