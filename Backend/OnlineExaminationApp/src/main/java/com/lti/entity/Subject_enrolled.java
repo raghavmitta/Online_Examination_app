@@ -4,14 +4,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 @Entity
 public class Subject_enrolled {
     @Id
     @GeneratedValue
 	private int id;
-    @JoinColumn(referencedColumnName = "exam_id")
+    @JoinColumn
+    @ManyToOne
     private Exam_Db exam_id;
-    @JoinColumn(referencedColumnName = "stu_id")
+    @JoinColumn
+    @ManyToOne
     private Student_Info stu_id;
     private int Passing_level;
 	public int getId() {

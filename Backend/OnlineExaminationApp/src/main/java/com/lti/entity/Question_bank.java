@@ -4,13 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Question_bank {
     @Id
     @GeneratedValue
 	private int ques_id;
-    @JoinColumn(referencedColumnName = "exam_id")
+    @JoinColumn
+    @ManyToOne
     private Exam_Db exam_id;
     private String question;
     private String option1;
