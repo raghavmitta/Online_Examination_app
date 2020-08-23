@@ -19,6 +19,7 @@ public class GenericDao {
 	}
 	
 	//generic function to fetch record via primarykey.
+	//<T> is like a Placeholder
 	public <T> T fetchById(Class<T> clazz, Object pk) {
 		return entityManager.find(clazz, pk);
 	}
