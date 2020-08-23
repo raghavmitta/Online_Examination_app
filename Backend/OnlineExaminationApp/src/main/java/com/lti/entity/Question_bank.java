@@ -1,6 +1,7 @@
 package com.lti.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -12,7 +13,7 @@ public class Question_bank {
     @GeneratedValue
 	private int ques_id;
     @JoinColumn
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Exam_Db exam_id;
     private String question;
     private String option1;
