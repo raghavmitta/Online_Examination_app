@@ -3,7 +3,9 @@ package com.lti.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 @Entity
+@NamedQuery(name = "fetch-all", query = "select e from Exam_Db as e")
 public class Exam_Db {
 	@Id
 	@GeneratedValue
