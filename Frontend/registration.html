@@ -14,23 +14,23 @@
         <button onclick="javascript:register('show');">Register</button>
         </div>
     <div class="box" id="popup">
-        <div class="topright"><a  href="javascript:login('hide');">X</a></div>
+        <div class="topright"><a  href="javascript:register('hide');">X</a></div>
         <h2>Register</h2>
         
         <form>
             <div>
-                Name
+                
                 <input type="text" name="name" required="">
                 <label>Name</label>
               
             </div>
             <div>
-                Email
+                
                 <input type="email" name="email" required="">
                 <label>Email</label>  
             </div>
             <div>
-                Password
+                
                 <input type="password" id="psw" name="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                 <label>Password</label> <span class="forgot"></span>
                 
