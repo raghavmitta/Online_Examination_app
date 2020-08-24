@@ -6,6 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import com.lti.entity.Exam_Db;
+
 
 public class GenericDao {
 
@@ -24,10 +26,5 @@ public class GenericDao {
 		return entityManager.find(clazz, pk);
 	}
 	
-	//generic function to fetch all record of a table.
-	public List<Object> findAll() {
-		return entityManager
-				.createNamedQuery("fetch-all")
-				.getResultList();
-	}
+
 }
