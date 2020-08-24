@@ -23,10 +23,4 @@ public class GenericDao {
 		return entityManager.find(clazz, pk);
 	}
 	
-	//generic function to fetch all record of a table.
-	public List<Object> findAll() {
-		return entityManager
-				.createNamedQuery("fetch-all")
-				.getResultList();
-	}
 }
