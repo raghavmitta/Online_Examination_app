@@ -36,7 +36,7 @@
         div.card {
             margin-top: 100px;
             margin-left: 100px;
-            width: 30%;
+            width: 350px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             float:left;
             }
@@ -105,72 +105,66 @@
         <li><a href="#home">Home</a></li>
         <li style= "float:left;"> sample image here</li>
       </ul>
-
-    <div>
-        <div class="card">
-            <div class="header">
-                <H2 class="dashboard">ADMIN DASHBOARD</H2>
-            </div>
-        
-            <div class="dashboardOptions">
-                <p> <a href="">View All Questions</a> </p>
-                <p> <a href="">Add Questions</a> </p>
-                <p> <a href="">Remove Questions</a> </p>
-                <p> <a href="">View Student Report</a> </p>
-            </div>
+    <div class="card">
+        <div class="header">
+            <H2 class="dashboard">ADMIN DASHBOARD</H2>
         </div>
-        <div Style="float: left; width: 50%; margin-top:100px; padding-left:5%">
-            <h2 style="margin-bottom: 3%;"> Filter</h2>
-            <form action="">
-                <label for="Technology" style = "width: 20%;">Technology</label>
-                <select name="" id="">
-                    <option value="Java">Java</option>
-                    <option value="">.Net</option>
-                    <option value="">TSL</option>
-                    <option value="">Mainframe</option>
-                </select>
-                <br>
-                <label for="State" style = "width: 20%;">State</label>
-                <select name="" id="">
-                    <option value="Java">Java</option>
-                    <option value="">.Net</option>
-                    <option value="">TSL</option>
-                    <option value="">Mainframe</option>
-                </select>
-                <br>
-                <label for="City" style = "width: 20%;">City</label>                
-                <select name="" id="">
-                    <option value="Java">Java</option>
-                    <option value="">.Net</option>
-                    <option value="">TSL</option>
-                    <option value="">Mainframe</option>
-                </select>
-                <br>
-                <label for="level" style = "width: 20%;">level</label>                
-
-                <select name="" id="">
-                    <option value="Java">Java</option>
-                    <option value="">.Net</option>
-                    <option value="">TSL</option>
-                    <option value="">Mainframe</option>
-                </select>
-                <br>
-                Marks
-                <select name="" id="">
-                    <option value="Java">Java</option>
-                    <option value="">.Net</option>
-                    <option value="">TSL</option>
-                    <option value="">Mainframe</option>
-                </select>
-                <br>
-                <button class="submitButton">View Report</button>
-                <br>
-                <br>
-            </form>
+      
+        <div class="dashboardOptions">
+            <p> <a href="">View All Questions</a> </p>
+            <p> <a href="">Add Questions</a> </p>
+            <p> <a href="">Remove Questions</a> </p>
+            <p> <a href="">View Student Report</a> </p>
         </div>
     </div>
+    <div Style="float: left; width: 50%; margin-top:100px; padding-left:5%">
+        <h2 style="margin-bottom: 3%;">Delete Questions</h2>
+        <form action="">
+        Technology
+        <select name="" id="">
+            <option value="Java">Java</option>
+            <option value="">.Net</option>
+            <option value="">TSL</option>
+            <option value="">Mainframe</option>
+        </select>
+        <br>
+        State
+        <select name="" id="">
+            <option value="Java">Java</option>
+            <option value="">.Net</option>
+            <option value="">TSL</option>
+            <option value="">Mainframe</option>
+        </select>
+        <br>
+        City
+        <select name="" id="">
+            <option value="Java">Java</option>
+            <option value="">.Net</option>
+            <option value="">TSL</option>
+            <option value="">Mainframe</option>
+        </select>
+        <br>
+        level
+        <select name="" id="">
+            <option value="Java">Java</option>
+            <option value="">.Net</option>
+            <option value="">TSL</option>
+            <option value="">Mainframe</option>
+        </select>
+        <br>
+        Marks
+        <select name="" id="">
+            <option value="Java">Java</option>
+            <option value="">.Net</option>
+            <option value="">TSL</option>
+            <option value="">Mainframe</option>
+        </select>
+        <br>
 
-    <div style="margin-top: 1%;">
+          <button class="submitButton">View Report</button>
+        </form>
+    </div>
+    <div>
         <table >
             <tr>
               <th>Name</th>

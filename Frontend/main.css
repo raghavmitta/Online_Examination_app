@@ -211,3 +211,38 @@ body{
       line-height: 20px;
       margin:0;
     }
+    #message {
+      display:none;
+      background: #f1f1f1;
+      color: #000;
+      position: relative;
+      padding: 10px;
+      margin-top: 5px;
+    }
+    
+    #message p {
+      padding: 5px 18px;
+      font-size: 14px;
+    }
+    
+    /* Add a green text color and a checkmark when the requirements are right */
+    .valid {
+      color: #18C114;
+    }
+    
+    .valid:before {
+      position: relative;
+      left: -25px;
+      /*content: "&#10004;";*/
+    }
+    
+    /* Add a red text color and an "x" icon when the requirements are wrong */
+    .invalid {
+      color: #D20808;
+    }
+    
+    .invalid:before {
+      position: relative;
+      left: -35px;
+      /* content: "&#10006;"; */
+    }
