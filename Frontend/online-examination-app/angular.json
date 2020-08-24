@@ -26,7 +26,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["assets/js/cities.js", "assets/js/register.js"]
           },
           "configurations": {
             "production": {
@@ -90,7 +90,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["assets/js/cities.js", "assets/js/register.js"]
           }
         },
         "lint": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "online-examination-app"
+    }
+  },
+  "defaultProject": "online-examination-app",
+  "cli": {
+    "analytics": false
+  }
 }
