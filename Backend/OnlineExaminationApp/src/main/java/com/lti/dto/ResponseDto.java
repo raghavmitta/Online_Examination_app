@@ -2,12 +2,12 @@ package com.lti.dto;
 
 public class ResponseDto {
 	private int response_id;
-	private String reponse;
-	public String getReponse() {
-		return reponse;
+	private String response;
+	public String getResponse() {
+		return response;
 	}
-	public void setReponse(String reponse) {
-		this.reponse = reponse;
+	public void setResponse(String response) {
+		this.response = response;
 	}
 	public int getResponse_id() {
 		return response_id;

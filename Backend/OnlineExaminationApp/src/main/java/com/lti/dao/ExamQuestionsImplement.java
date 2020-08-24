@@ -24,7 +24,6 @@ public List<Detail_report_db> getQuestions(int report_id)
 public void setresponse(int response_id,String response) {
 	Detail_report_db d=entitymanager.find(Detail_report_db.class,response_id);
 	d.setResponse(response);
-	entitymanager.merge(d);
 }
 
 
