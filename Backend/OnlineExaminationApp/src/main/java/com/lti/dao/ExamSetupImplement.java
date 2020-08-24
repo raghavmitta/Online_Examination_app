@@ -23,7 +23,7 @@ public class ExamSetupImplement {
 	{
 		entitymanager.merge(question);
 	}
-	@Transactional
+	/*
 	public String SetupExam(int student_id,int exam_id)
 	{
 		Integer exam_level=getlevel(student_id, exam_id);
@@ -35,7 +35,7 @@ public class ExamSetupImplement {
 		else
 		System.out.println("hello");
 	return "hello";
-	}
+	}*/
 	
 	
 	public boolean checkreport(int student_id,int exam_id,int exam_level) {
@@ -53,6 +53,7 @@ public class ExamSetupImplement {
 		return exam_level+1;
 	}
 	
+	@Transactional
 	public High_level_report generateReportId(int student_id,int exam_id,int exam_level)
 	{
 		High_level_report highL_report=new High_level_report();
@@ -64,6 +65,8 @@ public class ExamSetupImplement {
 		entitymanager.persist(highL_report);
 		return highL_report;
 	}
+	
+	@Transactional
 	public void preparetest(High_level_report Hreport)
 	{
 		int exam_id=Hreport.getExam_id().getExam_id();
@@ -76,13 +79,11 @@ public class ExamSetupImplement {
 			report.setReport_id(Hreport);
 			entitymanager.merge(report);
 		
-	}
+		}
 
 	}
-	
-	public Exam_Db fetchexamdb(int exam_id)
-	{
-		return entitymanager.find(Exam_Db.class, exam_id);
+	public int getreportid() {
+		return 0;
 	}
 
 }
