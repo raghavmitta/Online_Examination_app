@@ -1,10 +1,13 @@
 package com.lti.controller;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.controller.AdminController.Status.StatusType;
 import com.lti.dto.AdminViewQuestionDto;
+import com.lti.dto.FileUploadDto;
 import com.lti.entity.Exam_Db;
 import com.lti.entity.Question_bank;
 import com.lti.services.AdminService;
@@ -70,6 +74,31 @@ public class AdminController {
 		}
 		return list;
 		
+	}
+	
+	@PostMapping("/file-upload")
+	public Status upload(FileUploadDto fileUploadDto) throws Exception {
+		System.out.println("file upload begins");
+		String fileUploadLocation = "d:/uploads/";
+		String fileName = fileUploadDto.getCsvFile().getOriginalFilename();
+		String targetFile = fileUploadLocation + fileName;
+		try {
+			FileCopyUtils.copy(fileUploadDto.getCsvFile().getInputStream(), new FileOutputStream(targetFile));
+			System.out.println("file upload complete");
+		} catch (IOException e) {
+			e.printStackTrace();
+			Status status = new Status();
+			status.setStatus(StatusType.FAILURE);
+			status.setMessage(e.getMessage());
+			return status;
+		}
+		System.out.println("running readfile");
+		adminService.readFile(fileUploadDto.getExam_id(),fileName, targetFile);
+		System.out.println("readfile complete");
+		Status status = new Status();
+		status.setStatus(StatusType.SUCCESS);
+		status.setMessage("Uploaded!");
+		return status;
 	}
 
 //	public List<Question_bank> fetchQuestionByExamId ( int examId) {
