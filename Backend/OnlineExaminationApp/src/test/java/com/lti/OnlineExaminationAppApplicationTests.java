@@ -109,6 +109,13 @@ class OnlineExaminationAppApplicationTests {
 		   System.out.println(obj.getExam_id() + " " + obj.getExam_name());
 		}
 	}
+	@Test void getQuestionByExamId() {
+		List<Question_bank> list = admin.fetchQuestionByExamId(2);
+		for (Question_bank obj : list) 
+		{ 
+		   System.out.println(obj.getQuestion() + " " + obj.getQues_id() );
+		}
+	}
 	
 //	@Test
 //	public void getAllQuestion() {
