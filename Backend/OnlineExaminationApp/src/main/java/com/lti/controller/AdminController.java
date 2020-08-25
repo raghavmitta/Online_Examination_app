@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lti.controller.AdminController.Status.StatusType;
 import com.lti.dto.AdminViewQuestionDto;
 import com.lti.entity.Exam_Db;
 import com.lti.entity.Question_bank;
@@ -23,50 +24,85 @@ import com.lti.services.AdminService;
 @RestController
 @CrossOrigin
 public class AdminController {
-	
+
 	@Autowired
 	private AdminService adminService;
-	
+
 	@PostMapping(path = "/addsubject")
 	public void addSubject(Exam_Db exam) {
 		adminService.save(exam);
 	}
-	
+
 	@PostMapping(path = "/viewsubject")
 	public Exam_Db fetchSubjetById(int examId) {
 		return adminService.fetchExamById(examId);
 	}
-	
+
 	@GetMapping("/subjectlist")
-	public List<Exam_Db> fetchAllSubject(){
+	public List<Exam_Db> fetchAllSubject() {
 		return adminService.fetchAllSubjects();
 	}
-	
+
 	@PostMapping(path = "/addquestion")
-	public void addQuestion(Question_bank question) {
-		adminService.save(question);
+	public Status addQuestion(Question_bank question) {
+		try {
+			adminService.save(question);
+			Status status = new Status();
+			status.setStatus(StatusType.SUCCESS);
+			status.setMessage("Questions added successfully!");
+			return status;
+		} catch(Exception e) {
+			Status status = new Status();
+			status.setStatus(StatusType.FAILURE);
+			status.setMessage(e.getMessage());
+			return status;
+		}
 	}
-	
-	@RequestMapping(path = "/fetchquestion/{examId}" , method = RequestMethod.GET)
-	public List<AdminViewQuestionDto> fetchQuestionByExamId (@PathVariable int examId) {
-		List <AdminViewQuestionDto> list = new ArrayList();
-		
-		for (Question_bank obj : adminService.fetchQuestionByExamId(examId)) 
-		{ 
+
+	@RequestMapping(path = "/fetchquestion/{examId}", method = RequestMethod.GET)
+	public List<AdminViewQuestionDto> fetchQuestionByExamId(@PathVariable int examId) {
+		List<AdminViewQuestionDto> list = new ArrayList();
+
+		for (Question_bank obj : adminService.fetchQuestionByExamId(examId)) {
 			AdminViewQuestionDto adminViewQuestionDto = new AdminViewQuestionDto();
-		    BeanUtils.copyProperties(obj, adminViewQuestionDto);
-		    list.add(adminViewQuestionDto);
+			BeanUtils.copyProperties(obj, adminViewQuestionDto);
+			list.add(adminViewQuestionDto);
 		}
 		return list;
+		
 	}
-	
+
 //	public List<Question_bank> fetchQuestionByExamId ( int examId) {
 //	return adminService.fetchQuestionByExamId(examId);
 //
 //}
-	//public List<Question_bank> fetchAllQuestions(){
-	//	return adminService.fetchAllQuestions();
-	//}
-	
+	// public List<Question_bank> fetchAllQuestions(){
+	// return adminService.fetchAllQuestions();
+	// }
+
+	public static class Status {
+		private StatusType status;
+		private String message;
+
+		public static enum StatusType {
+			SUCCESS, FAILURE;
+		}
+
+		public StatusType getStatus() {
+			return status;
+		}
+
+		public void setStatus(StatusType status) {
+			this.status = status;
+		}
+
+		public String getMessage() {
+			return message;
+		}
+
+		public void setMessage(String message) {
+			this.message = message;
+		}
+	}
 
 }
