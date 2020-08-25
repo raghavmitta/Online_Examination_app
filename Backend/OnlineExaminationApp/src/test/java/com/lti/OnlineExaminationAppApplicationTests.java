@@ -83,12 +83,12 @@ class OnlineExaminationAppApplicationTests {
 		Exam_Db exam = admin.fetchSubjetById(2);
 		
 		question.setExam_id(exam);
-		question.setQuestion("how you doing??");
-		question.setOption1("fine");
-		question.setOption2("Good");
-		question.setOption3("bliss");
-		question.setOption4("ahh.. guess ok");
-		question.setCorrect_answer("Good");
+		question.setQuestion("What is JRE?");
+		question.setOption1("Java Runtime Environment");
+		question.setOption2("Java Runnable Environment");
+		question.setOption3("Java Runtime Entity");
+		question.setOption4("Java Runnable Entity");
+		question.setCorrect_answer("Java Runtime Environment");
 		question.setQuestion_level(1);
 		question.setMarks(4);
 		question.setGroup_name(".java");
@@ -118,6 +118,13 @@ class OnlineExaminationAppApplicationTests {
 		}
 	}
 	
+//	@Test void getQuestionByExamId() {
+//		List<Question_bank> list = admin.fetchQuestionByExamId(2);
+//		for (Question_bank obj : list) 
+//		{ 
+//		   System.out.println(obj.getQuestion() + " " + obj.getQues_id() );
+//		}
+//	}
 //	@Test
 //	public void getAllQuestion() {
 //		List <Question_bank> list = admin.fetchAllQuestions();

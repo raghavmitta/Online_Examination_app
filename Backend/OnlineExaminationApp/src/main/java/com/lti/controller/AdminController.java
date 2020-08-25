@@ -47,19 +47,23 @@ public class AdminController {
 		adminService.save(question);
 	}
 	
-	//@PostMapping(path = "/fetchquestion")
 	@RequestMapping(path = "/fetchquestion/{examId}" , method = RequestMethod.GET)
 	public List<AdminViewQuestionDto> fetchQuestionByExamId (@PathVariable int examId) {
 		List <AdminViewQuestionDto> list = new ArrayList();
-		AdminViewQuestionDto adminViewQuestionDto = new AdminViewQuestionDto();
+		
 		for (Question_bank obj : adminService.fetchQuestionByExamId(examId)) 
 		{ 
+			AdminViewQuestionDto adminViewQuestionDto = new AdminViewQuestionDto();
 		    BeanUtils.copyProperties(obj, adminViewQuestionDto);
 		    list.add(adminViewQuestionDto);
 		}
 		return list;
 	}
-//	
+	
+//	public List<Question_bank> fetchQuestionByExamId ( int examId) {
+//	return adminService.fetchQuestionByExamId(examId);
+//
+//}
 	//public List<Question_bank> fetchAllQuestions(){
 	//	return adminService.fetchAllQuestions();
 	//}
