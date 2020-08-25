@@ -5,6 +5,13 @@ import java.util.List;
 import com.lti.entity.Exam_Db;
 
 public class AdminViewQuestionDto {
+	private int ques_id;
+	public int getQues_id() {
+		return ques_id;
+	}
+	public void setQues_id(int ques_id) {
+		this.ques_id = ques_id;
+	}
 	private String question;
     private String option1;
     private String option2;

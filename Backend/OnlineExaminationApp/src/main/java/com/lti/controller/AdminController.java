@@ -1,10 +1,13 @@
 package com.lti.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lti.dto.AdminViewQuestionDto;
 import com.lti.entity.Exam_Db;
 import com.lti.entity.Question_bank;
 import com.lti.services.AdminService;
@@ -44,12 +48,18 @@ public class AdminController {
 	}
 	
 	//@PostMapping(path = "/fetchquestion")
-	@RequestMapping(path = "/fetchquestion" , method = RequestMethod.POST)
-	public List<Question_bank> fetchQuestionByExamId (@RequestBody int examId) {
-		//int eid = examId;
-		return adminService.fetchQuestionByExamId(examId);
+	@RequestMapping(path = "/fetchquestion/{examId}" , method = RequestMethod.GET)
+	public List<AdminViewQuestionDto> fetchQuestionByExamId (@PathVariable int examId) {
+		List <AdminViewQuestionDto> list = new ArrayList();
+		AdminViewQuestionDto adminViewQuestionDto = new AdminViewQuestionDto();
+		for (Question_bank obj : adminService.fetchQuestionByExamId(examId)) 
+		{ 
+		    BeanUtils.copyProperties(obj, adminViewQuestionDto);
+		    list.add(adminViewQuestionDto);
+		}
+		return list;
 	}
-	
+//	
 	//public List<Question_bank> fetchAllQuestions(){
 	//	return adminService.fetchAllQuestions();
 	//}

@@ -15,6 +15,7 @@ import org.springframework.test.annotation.Rollback;
 import com.lti.controller.AdminController;
 import com.lti.dao.ExamQuestionsImplement;
 import com.lti.dao.ExamSetupImplement;
+import com.lti.dto.AdminViewQuestionDto;
 import com.lti.entity.Detail_report_db;
 import com.lti.entity.Exam_Db;
 import com.lti.entity.Question_bank;
@@ -110,8 +111,8 @@ class OnlineExaminationAppApplicationTests {
 		}
 	}
 	@Test void getQuestionByExamId() {
-		List<Question_bank> list = admin.fetchQuestionByExamId(2);
-		for (Question_bank obj : list) 
+		List<AdminViewQuestionDto> list = admin.fetchQuestionByExamId(2);
+		for (AdminViewQuestionDto obj : list) 
 		{ 
 		   System.out.println(obj.getQuestion() + " " + obj.getQues_id() );
 		}
