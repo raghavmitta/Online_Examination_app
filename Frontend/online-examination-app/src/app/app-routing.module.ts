@@ -8,6 +8,7 @@ import { ExaminationInstructionComponent } from "./examination-instruction/exami
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoadQuestionsComponent } from './load-questions/load-questions.component';
+import { ShowresultComponent } from './showresult/showresult.component';
 
 const routes: Routes = [
 {path:'',component:HomeComponent}, 
@@ -18,6 +19,7 @@ const routes: Routes = [
 {path: 'admin/admin-dashboard', component:AdmindashboardComponent},
 {path: 'admin/add-question', component:AddquestionComponent},
 {path: 'admin/remove-question', component:RemoveQuestionComponent},
+{path: 'showresult', component:ShowresultComponent}
 ];
 
 @NgModule({
