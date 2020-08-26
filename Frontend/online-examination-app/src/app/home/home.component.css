@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@700&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding:0;
+    background-color: #301446;
+}
+body{
+    display: flexbox;
+    font-family: "Montserrat","Roboto",sans-serif;
+}
+li,a,button{
+    font-weight: 700;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 1);
+    text-decoration:none;
+}
+.nav_links a{
+    color: rgba(255, 255, 255, 0.5);
+
+
+}
+.nav_links a:hover{
+    color: rgba(255, 255, 255, 1);
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:30px 10%;
+}
+.nav_links{
+    list-style:none;
+    font-weight: 700 ;
+}
+.nav_links li{
+    
+    display: inline-block;
+    padding:0px 20px;
+}
+.nav_link  li a:hover{
+    color: #0088a9
+
+}
+button{
+    font-weight: 500;
+    padding: 9px 25px;
+    background-color:#ea7052;
+    border:none;
+    font-size: 18px;
+    border-radius: 50px;
+    cursor:pointer ;
+    
+
+}
+#letgo{
+    padding:40px
+}
+#letgo button{
+    padding:20px 50px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 9px;
+}
+button:hover{
+    background-color:#f0967f; 
+}
+.banner{
+
+    padding:10%;
+    align-items: center;
+    text-align: center;
+    color:#fff ;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 130%;
+
+}

@@ -1,0 +1,54 @@
+<body>
+    <ul>
+        <li><a href="#profile">User Profile</a></li>
+        <li><a class="active" href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#home">Home</a></li>
+        <li style= "float:left;"> sample image here</li>
+      </ul>
+    <div class="card">
+        <div class="header">
+            <H2 class="dashboard">ADMIN DASHBOARD</H2>
+        </div>
+      
+        <div class="dashboardOptions">
+            <p> <a [routerLink]="'/admin/add-question'">View All Questions</a> </p>
+            <p> <a [routerLink]="'/admin/add-question'">Add Questions</a> </p>
+            <p> <a [routerLink]="'/admin/remove-question'">Remove Questions</a> </p>
+            <p> <a [routerLink]="'/admin/add-question'">View Student Report</a> </p>
+        </div>
+    </div>
+    <div Style="float: right; width: 50%; margin-top:100px; padding-right:5%">
+        <h2 style="margin-bottom: 3%;">Add New Questions</h2>
+        <form (ngSubmit)="upload()" enctype="multipart/form-data">
+            <label >Select the subject: </label>
+
+            <select >
+              <option value="Java">Java</option>
+              <option value="">.Net</option>
+              <option value="">TSL</option>
+              <option value="">Mainframe</option>
+            </select> 
+
+            <fieldset>
+                <legend>Drop File To upload</legend>
+                
+                <input type="hidden" />
+                
+                <div>
+                    <label >Select/ Drag & Drop the question bank file:</label>
+                    <br> 
+                    <input class = "uploadButton" type="file" name="t1" (change)="onFileChange($event)" />
+                    <div id="filedrag">or drop files here</div>
+                </div>
+                
+                <div>
+                    <button class = "submitButton" type="submit">Upload Files</button>
+                </div>
+            
+            </fieldset>
+            
+            </form>
+    </div>
+</body>

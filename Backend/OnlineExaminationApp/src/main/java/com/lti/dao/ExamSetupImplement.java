@@ -23,7 +23,7 @@ public class ExamSetupImplement {
 	{
 		entitymanager.merge(question);
 	}
-	/*
+	
 	public String SetupExam(int student_id,int exam_id)
 	{
 		Integer exam_level=getlevel(student_id, exam_id);
@@ -35,8 +35,7 @@ public class ExamSetupImplement {
 		else
 		System.out.println("hello");
 	return "hello";
-	}*/
-	
+	}
 	
 	public boolean checkreport(int student_id,int exam_id,int exam_level) {
 		return (long)entitymanager.createQuery("Select count(report) from High_level_report report where report.exam_level=:level and report.stu_id.stu_id=:s_id and report.exam_id.exam_id=:e_id")

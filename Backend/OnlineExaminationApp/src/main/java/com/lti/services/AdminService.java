@@ -37,7 +37,7 @@ public class AdminService {
 	}
 
 	public void readFile(int exam_id, String fileName, String targetFile) throws Exception {
-		List <Question_bank> questionList = new ArrayList();
+		List <Question_bank> questionList = new ArrayList<Question_bank>();
 			String file = targetFile;
 			System.out.println("readingcsv lin by line");
 			try (Stream<String> stream = Files.lines(Paths.get(file)).skip(1)) {

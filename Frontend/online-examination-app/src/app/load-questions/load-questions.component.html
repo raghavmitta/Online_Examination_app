@@ -1,0 +1,25 @@
+
+<button (click)="showquestions()">Load</button>
+<div class="load" *ngIf="this.showquestion">
+    <div style="display: inline-block;position:static;" *ngIf="this.qNo!=0">    
+        <button (click)="previous()">Previous Question</button>
+        </div>
+        <div style="display: inline-block;position:static;" *ngIf="this.qNo!=qlist.length-1">  
+        <button (click)="next()">Next Question</button>
+        </div>
+<div class="container" >
+
+<h3>{{this.qcurrent.question}}</h3>
+    <ul>
+    <li *ngFor="let option of this.qcurrent.options">
+    <input type="radio" [id]="option.option" name="opt" [(ngModel)]="this.qcurrent.response" [value]="option.option">
+    <label [for]="option.option">{{option.option}}</label>
+    <div class="check"><div class="inside"></div></div>
+    </li>
+    
+    </ul>
+</div>
+
+<button style="margin-left:800px; margin-top:0px" (click)="submit()">Submit</button>
+    
+</div>

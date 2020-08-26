@@ -65,7 +65,7 @@ public class AdminController {
 
 	@RequestMapping(path = "/fetchquestion/{examId}", method = RequestMethod.GET)
 	public List<AdminViewQuestionDto> fetchQuestionByExamId(@PathVariable int examId) {
-		List<AdminViewQuestionDto> list = new ArrayList();
+		List<AdminViewQuestionDto> list = new ArrayList<AdminViewQuestionDto>();
 
 		for (Question_bank obj : adminService.fetchQuestionByExamId(examId)) {
 			AdminViewQuestionDto adminViewQuestionDto = new AdminViewQuestionDto();

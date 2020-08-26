@@ -1,25 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { Register } from '../register';
-declare function print_state(): any;
-declare function print_city(): any;
-declare function register(): any;
+//import { HttpClientModule } from '@angular/common/http';
+import { RegisterService } from '../register.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
-  
+  styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
 
+export class RegisterComponent{
+
+  data: any;
+  constructor(private service: RegisterService){}
   register: Register= new Register();
-  constructor() { }
 
-  ngOnInit(){
-    print_state();
-    print_city();
-    register();
-
-  }
+  
+    addUser(){
+      this.service.addUser(this.register).subscribe(this.data);
+      alert(this.data);
+    }
 }
+
