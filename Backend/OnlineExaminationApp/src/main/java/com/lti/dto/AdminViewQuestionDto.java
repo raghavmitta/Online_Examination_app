@@ -6,12 +6,6 @@ import com.lti.entity.Exam_Db;
 
 public class AdminViewQuestionDto {
 	private int ques_id;
-	public int getQues_id() {
-		return ques_id;
-	}
-	public void setQues_id(int ques_id) {
-		this.ques_id = ques_id;
-	}
 	private String question;
     private String option1;
     private String option2;
@@ -19,6 +13,13 @@ public class AdminViewQuestionDto {
     private String option4;
     private String correct_answer;
     private String group_name;
+    
+	public int getQues_id() {
+		return ques_id;
+	}
+	public void setQues_id(int ques_id) {
+		this.ques_id = ques_id;
+	}
 	public String getQuestion() {
 		return question;
 	}
