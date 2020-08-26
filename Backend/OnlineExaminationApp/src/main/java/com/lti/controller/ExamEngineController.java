@@ -28,7 +28,7 @@ public class ExamEngineController {
 		return services.getquestions(67);
 	 
 	}
-	@RequestMapping(path="/saveresponse ",method=RequestMethod.POST)
+	@RequestMapping(path="/saveresponse",method=RequestMethod.POST)
 	public int saveresponse(@RequestBody ResponseDto r)
 	{
 		System.out.println(r.getResponse());

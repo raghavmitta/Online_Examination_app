@@ -1,0 +1,91 @@
+body{
+    margin:0%;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 1.1%;
+    overflow: hidden;
+    background-color: rgb(5, 66, 134);
+    }
+
+    li {
+    float: right;
+    }
+
+    li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 30px;
+    text-decoration: none;
+    font-size: 150%;
+    }
+
+    li a:hover:not(.active) {
+    background-color: #111;
+    }
+div.card {
+    margin-top: 100px;
+    margin-left: 100px;
+    width: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    float:left;
+    }
+div.container {
+    padding: 10px;
+    }
+H2.dashboard{
+    margin-top: 0%;
+    margin-bottom: 0%;
+    background-color: rgb(23, 162, 197); 
+    padding: 7%; 
+    color: white;
+    text-align: center;
+    }
+div.dashboardOptions{
+    background-color: rgb(5, 66, 134);
+    padding: 2%;
+    }
+p{
+    margin:0%;
+    padding:4%;
+    }
+a{
+    text-decoration: none;
+    color: white;
+    }
+#filedrag
+{
+    display: none;
+    font-weight: bold;
+    text-align: center;
+    padding: 1em 0;
+    margin: 1em 0;
+    color: #555;
+    border: 2px dashed #555;
+    border-radius: 7px;
+    cursor: default;
+}
+
+#filedrag.hover
+{
+    color: #f00;
+    border-color: #f00;
+    border-style: solid;
+    box-shadow: inset 0 3px 4px #888;
+}
+.submitButton{
+    padding:1%;
+    width: 30%;
+    background-color: rgb(5, 66, 134);
+    color:white;
+    border: none;
+}
+.uploadButton{
+    width: 100%;
+    padding:5%;
+}
+select{
+    padding:1%;
+}
