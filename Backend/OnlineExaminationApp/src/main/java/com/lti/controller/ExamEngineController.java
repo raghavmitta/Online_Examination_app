@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.lti.dto.ExamListDto;
 import com.lti.dto.QuestionDto;
 import com.lti.dto.ResponseDto;
+import com.lti.dto.ResultDto;
 import com.lti.services.ExamEngineServices;
 @RestController
 @CrossOrigin
@@ -20,12 +23,17 @@ public class ExamEngineController {
 	@Autowired
 	private ExamEngineServices services;
 	
-	@RequestMapping(path = "/beginexam/{exam_id}", method=RequestMethod.GET)
-	public List<QuestionDto> beginexam(@PathVariable int exam_id)
+	@RequestMapping(path = "/beginexam/{exam_id}/{stu_id}", method=RequestMethod.GET)
+	public List<QuestionDto> beginexam(@PathVariable int exam_id,@PathVariable int stu_id)
 	{
-		int report_id=services.ExamSetup(1, exam_id);
+		if(services.isallowed(stu_id,exam_id))
+		{
+		int report_id=services.ExamSetup(stu_id, exam_id);
 		System.out.println(report_id);
-		return services.getquestions(67);
+		return services.getquestions(report_id); //67
+		}
+		else
+			return null;
 	 
 	}
 	@RequestMapping(path="/saveresponse",method=RequestMethod.POST)
@@ -35,4 +43,15 @@ public class ExamEngineController {
 		services.saveResponse(r);
 		return 0;
 	}
+	@RequestMapping(path="/getresult/{exam_id}/{stu_id}",method=RequestMethod.GET)
+	public ResultDto getresult(@PathVariable int exam_id,@PathVariable int stu_id) {
+		return services.SubmitExam(stu_id,exam_id);
+	}
+	@RequestMapping(path="/getexamlist/{stu_id}",method=RequestMethod.GET)
+	public List<ExamListDto> getexamlist(@PathVariable int stu_id){
+		return services.getexamlist(stu_id);
+		
+	}
+	
+	
 }
