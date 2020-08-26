@@ -24,7 +24,7 @@ public class AdminDao extends GenericDao {
 	
 	public List<Question_bank> fetchQuestionByExamId(int examId) {
 		return entityManager
-				.createQuery("select question from Question_bank question where question.exam_id = :eId")
+				.createQuery("select question from Question_bank question where question.exam_id.exam_id = :eId")
 				.setParameter("eId", examId)
 				.getResultList();
 	}

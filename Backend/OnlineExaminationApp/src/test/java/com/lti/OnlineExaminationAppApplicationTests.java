@@ -20,15 +20,14 @@ import com.lti.dao.ExamSetupImplement;
 import com.lti.dto.QuestionDto;
 import com.lti.dto.ResponseDto;
 import com.lti.dto.optionsDto;
+import com.lti.dto.AdminViewQuestionDto;
 import com.lti.entity.Detail_report_db;
 import com.lti.entity.Exam_Db;
 import com.lti.entity.Question_bank;
 import com.lti.entity.Student_Info;
-<<<<<<< HEAD
 import com.lti.services.ExamEngineServices;
-=======
 import com.lti.services.AdminService;
->>>>>>> 0a27c2e0123f875f12721bacd9cc4475c8814409
+
 
 @SpringBootTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
@@ -82,7 +81,6 @@ class OnlineExaminationAppApplicationTests {
 		
 		admin.addSubject(e);
 	}
-<<<<<<< HEAD
 	@Test
 	public void Servicestest() {
 		List<QuestionDto> questions=services.getquestions(43);
@@ -102,9 +100,8 @@ class OnlineExaminationAppApplicationTests {
 			services.saveResponse(r);
 		}
 		
-	}
+	
 
-=======
 	
 	@Test
 	public void addNewQuestion() {
@@ -113,12 +110,12 @@ class OnlineExaminationAppApplicationTests {
 		Exam_Db exam = admin.fetchSubjetById(2);
 		
 		question.setExam_id(exam);
-		question.setQuestion("how you doing??");
-		question.setOption1("fine");
-		question.setOption2("Good");
-		question.setOption3("bliss");
-		question.setOption4("ahh.. guess ok");
-		question.setCorrect_answer("Good");
+		question.setQuestion("What is JRE?");
+		question.setOption1("Java Runtime Environment");
+		question.setOption2("Java Runnable Environment");
+		question.setOption3("Java Runtime Entity");
+		question.setOption4("Java Runnable Entity");
+		question.setCorrect_answer("Java Runtime Environment");
 		question.setQuestion_level(1);
 		question.setMarks(4);
 		question.setGroup_name(".java");
@@ -140,7 +137,22 @@ class OnlineExaminationAppApplicationTests {
 		   System.out.println(obj.getExam_id() + " " + obj.getExam_name());
 		}
 	}
+	@Test void getQuestionByExamId() {
+		List<AdminViewQuestionDto> list = admin.fetchQuestionByExamId(2);
+		for (AdminViewQuestionDto obj : list) 
+		{ 
+		   System.out.println(obj.getQuestion() + " " + obj.getQues_id() );
+		}
+}
+	}
 	
+//	@Test void getQuestionByExamId() {
+//		List<Question_bank> list = admin.fetchQuestionByExamId(2);
+//		for (Question_bank obj : list) 
+//		{ 
+//		   System.out.println(obj.getQuestion() + " " + obj.getQues_id() );
+//		}
+//	}
 //	@Test
 //	public void getAllQuestion() {
 //		List <Question_bank> list = admin.fetchAllQuestions();
@@ -149,5 +161,4 @@ class OnlineExaminationAppApplicationTests {
 //		   System.out.println(obj.getQuestion() + " " + obj.getQues_id() );
 //		}
 //	}
-}
->>>>>>> 0a27c2e0123f875f12721bacd9cc4475c8814409
+
