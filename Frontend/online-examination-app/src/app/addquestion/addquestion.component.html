@@ -23,15 +23,11 @@
         <h2 style="margin-bottom: 3%;">Add New Questions</h2>
         <form (ngSubmit)="upload()" enctype="multipart/form-data">
             <label >Select the subject: </label>
+            <select name="exam" [(ngModel)]=exam_id>
+                <option *ngFor="let i of exam_db" value={{i.exam_id}}>{{i.exam_name}} </option>
+            </select>
 
-            <select >
-              <option value="Java">Java</option>
-              <option value="">.Net</option>
-              <option value="">TSL</option>
-              <option value="">Mainframe</option>
-            </select> 
-
-            <fieldset>
+            <fieldset *ngIf="exam_id">
                 <legend>Drop File To upload</legend>
                 
                 <input type="hidden" />

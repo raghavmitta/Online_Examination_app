@@ -67,8 +67,7 @@ public class AdminService {
 			System.out.println(exam.getExam_id());
 			
 			for (Question_bank obj : questionList) {
-				Question_bank question = new Question_bank();
-				question.setExam_id(exam);	
+				obj.setExam_id(exam);	
 				adminDao.save(obj);
 			}
 		}
