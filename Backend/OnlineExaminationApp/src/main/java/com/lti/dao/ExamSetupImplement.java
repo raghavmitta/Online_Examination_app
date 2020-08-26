@@ -1,5 +1,6 @@
 package com.lti.dao;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -13,9 +14,10 @@ import com.lti.entity.Exam_Db;
 import com.lti.entity.High_level_report;
 import com.lti.entity.Question_bank;
 import com.lti.entity.Student_Info;
+import com.lti.entity.Subject_enrolled;
 
 @Repository
-public class ExamSetupImplement {
+public class ExamSetupImplement implements ExamSetup {
 	@PersistenceContext
 	private EntityManager entitymanager;
 	@Transactional
@@ -49,7 +51,10 @@ public class ExamSetupImplement {
 	{
 	Integer exam_level=(Integer)entitymanager.createQuery("select enroll.Passing_level from Subject_enrolled enroll where enroll.exam_id.exam_id=:e_id and enroll.stu_id.stu_id=:s_id").
 				setParameter("e_id", exam_id).setParameter("s_id",student_id).getSingleResult();
-		return exam_level+1;
+	if(exam_level==3)
+		return 3;
+	else
+	return exam_level+1;
 	}
 	
 	@Transactional
@@ -61,6 +66,7 @@ public class ExamSetupImplement {
 		highL_report.setExam_id(exam);
 		highL_report.setStu_id(student);
 		highL_report.setExam_level(exam_level);
+		highL_report.setStarting_time(LocalDateTime.now());
 		entitymanager.persist(highL_report);
 		return highL_report;
 	}
@@ -81,8 +87,30 @@ public class ExamSetupImplement {
 		}
 
 	}
-	public int getreportid() {
-		return 0;
+	public int getreportid(int student_id, int exam_id,int exam_level) {
+		Integer report_id=(Integer)entitymanager.createQuery("select r.report_id from High_level_report r where exam_id.exam_id=:e_id and stu_id.stu_id=:s_id and exam_level=:level and status IS NULL " ).
+				setParameter("e_id", exam_id)
+				.setParameter("s_id",student_id)
+				.setParameter("level",exam_level)
+				.getSingleResult();
+		return report_id;
+				
 	}
-
+	public int istestlive(int student_id) {
+		try {
+		return (Integer)entitymanager.createQuery("select r.exam_id.exam_id from High_level_report r where stu_id.stu_id=:s_id and starting_time IS NOT NULL and ending_time IS NULL ")
+				.setParameter("s_id",student_id)
+				.getSingleResult();
+		}
+		catch(Exception e) {
+			return 0;
+		}
+	
+}
+	public List<Subject_enrolled> getexamlist(int stu_id) {
+		return 	entitymanager.createQuery("select enroll from Subject_enrolled enroll where enroll.stu_id.stu_id=:s_id")
+				.setParameter("s_id",stu_id)
+				.getResultList();
+		
+	}
 }
