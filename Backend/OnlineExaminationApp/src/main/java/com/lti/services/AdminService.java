@@ -62,8 +62,9 @@ public class AdminService {
 			catch(IOException e) {
 				throw new Exception("Error while reading complaints.csv file", e);
 			}
-			System.out.println("arraylist made");
+			System.out.println("arraylist made" + exam_id );
 			Exam_Db exam = (adminDao.fetchById(Exam_Db.class, exam_id));
+			System.out.println(exam.getExam_id());
 			
 			for (Question_bank obj : questionList) {
 				Question_bank question = new Question_bank();

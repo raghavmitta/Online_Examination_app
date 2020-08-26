@@ -1,6 +1,8 @@
 package com.lti;
 
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -15,12 +17,17 @@ import org.springframework.test.annotation.Rollback;
 import com.lti.controller.AdminController;
 import com.lti.dao.ExamQuestionsImplement;
 import com.lti.dao.ExamSetupImplement;
+import com.lti.dto.QuestionDto;
+import com.lti.dto.ResponseDto;
+import com.lti.dto.optionsDto;
 import com.lti.dto.AdminViewQuestionDto;
 import com.lti.entity.Detail_report_db;
 import com.lti.entity.Exam_Db;
 import com.lti.entity.Question_bank;
 import com.lti.entity.Student_Info;
+import com.lti.services.ExamEngineServices;
 import com.lti.services.AdminService;
+
 
 @SpringBootTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
@@ -30,6 +37,8 @@ class OnlineExaminationAppApplicationTests {
 	private ExamSetupImplement e;
 	@Autowired
 	private ExamQuestionsImplement q;
+	@Autowired 
+	private ExamEngineServices services;
 	@Test
 	public void schematest() {
 		Question_bank q=new Question_bank();
@@ -39,15 +48,12 @@ class OnlineExaminationAppApplicationTests {
 		q.setOption3("Use of pointers");
 		q.setOption4("Object-oriented");
 		q.setCorrect_answer(q.getOption3());
-		q.setExam_id(e.fetchexamdb(101));
+		
 		q.setMarks(2);
 		e.insert(q);
 	}	
-	@Test
-	public void examsetuptest() {
-		e.SetupExam(1, 101);
 	
-	}
+	
 	@Test
 	public void getquestionstest() {
 		List<Detail_report_db> questions=q.getQuestions(43);
@@ -75,6 +81,27 @@ class OnlineExaminationAppApplicationTests {
 		
 		admin.addSubject(e);
 	}
+	@Test
+	public void Servicestest() {
+		List<QuestionDto> questions=services.getquestions(43);
+		for(QuestionDto q :questions)
+		{
+			System.out.println(q.getQuestion());
+			for(optionsDto opt:q.getOptions())
+			{
+				System.out.println(opt.getOption());
+			}
+		}}
+		@Test
+	public void Servicetest2() {
+			ResponseDto r=new ResponseDto();
+			r.setReponse("Use of pointers");
+			r.setResponse_id(45);
+			services.saveResponse(r);
+		}
+		
+	
+
 	
 	@Test
 	public void addNewQuestion() {
@@ -116,6 +143,7 @@ class OnlineExaminationAppApplicationTests {
 		{ 
 		   System.out.println(obj.getQuestion() + " " + obj.getQues_id() );
 		}
+}
 	}
 	
 //	@Test void getQuestionByExamId() {
@@ -133,4 +161,3 @@ class OnlineExaminationAppApplicationTests {
 //		   System.out.println(obj.getQuestion() + " " + obj.getQues_id() );
 //		}
 //	}
-}
