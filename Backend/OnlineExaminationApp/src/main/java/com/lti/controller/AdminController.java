@@ -78,13 +78,11 @@ public class AdminController {
 
 	@PostMapping("/file-upload")
 	public Status upload(FileUploadDto fileUploadDto) throws Exception {
-		System.out.println("file upload begins" + fileUploadDto.getExam_id());
 		String fileUploadLocation = "d:/uploads/csv";
 		String fileName = fileUploadDto.getCsvFile().getOriginalFilename();
 		String targetFile = fileUploadLocation + fileName;
 		try {
 			FileCopyUtils.copy(fileUploadDto.getCsvFile().getInputStream(), new FileOutputStream(targetFile));
-			System.out.println("file upload complete");
 		} catch (IOException e) {
 			e.printStackTrace();
 			Status status = new Status();
@@ -92,9 +90,7 @@ public class AdminController {
 			status.setMessage(e.getMessage());
 			return status;
 		}
-		System.out.println("running readfile");
 		adminService.readFile(fileUploadDto.getExam_id(), fileName, targetFile);
-		System.out.println("readfile complete");
 		Status status = new Status();
 		status.setStatus(StatusType.SUCCESS);
 		status.setMessage("Uploaded!");
@@ -105,14 +101,14 @@ public class AdminController {
 	public Status upload(@RequestBody int indexes[]) {
 		try {
 			for(int i=0; i<indexes.length; i++) {
-			Question_bank question_bank = new Question_bank();
-			question_bank = adminService.fetchQuestion(indexes[i]);
-			question_bank.setActive(0);
-			adminService.save(question_bank);
-			Status status = new Status();
-			status.setStatus(StatusType.SUCCESS);
-			status.setMessage("Questions deleted successfully!");
-			return status;
+				Question_bank question_bank = new Question_bank();
+				question_bank = adminService.fetchQuestion(indexes[i]);
+				question_bank.setActive(0);
+				adminService.save(question_bank);
+				Status status = new Status();
+				status.setStatus(StatusType.SUCCESS);
+				status.setMessage("Questions deleted successfully!");
+				return status;
 			}
 		} catch (Exception e) {
 			Status status = new Status();
@@ -123,14 +119,6 @@ public class AdminController {
 		return null;
 
 	}
-
-//	public List<Question_bank> fetchQuestionByExamId ( int examId) {
-//	return adminService.fetchQuestionByExamId(examId);
-//
-//}
-	// public List<Question_bank> fetchAllQuestions(){
-	// return adminService.fetchAllQuestions();
-	// }
 
 	public static class Status {
 		private StatusType status;

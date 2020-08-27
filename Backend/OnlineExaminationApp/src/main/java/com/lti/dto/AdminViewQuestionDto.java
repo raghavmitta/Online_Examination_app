@@ -13,9 +13,15 @@ public class AdminViewQuestionDto {
     private String option4;
     private String correct_answer;
     private String group_name;
-    
+    private int question_level;
 	public int getQues_id() {
 		return ques_id;
+	}
+	public int getQuestion_level() {
+		return question_level;
+	}
+	public void setQuestion_level(int question_level) {
+		this.question_level = question_level;
 	}
 	public void setQues_id(int ques_id) {
 		this.ques_id = ques_id;

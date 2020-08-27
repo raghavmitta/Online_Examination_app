@@ -29,6 +29,7 @@ li a:hover:not(.active) {
 div.card {
     margin-top: 100px;
     margin-left: 100px;
+    margin-bottom: 20px;
     width: 350px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     float:left;
@@ -63,13 +64,13 @@ a{
     }
 
 .deleteButton{
-    margin-top: 20px;
-    margin-right: 100px;
+    margin-right: 5%;
     padding:1%;
     width: 20%;
     background-color: rgb(195, 16, 16);
     color:white;
     border: none;
+    margin-bottom: 5%;
 }
 select{
     padding:1%;
@@ -90,7 +91,13 @@ table{
     border: 1px solid rgb(23, 162, 197);
     padding: 1%;
     border-collapse: collapse;
-    width:80%;
+    width:50%;
+}
+.tableAnswer{
+    border: 1px solid rgb(23, 162, 197);
+    padding: 1%;
+    border-collapse: collapse;
+    width:20%;
 }
 td{
     border: 1px solid rgb(23, 162, 197);

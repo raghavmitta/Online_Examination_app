@@ -5,46 +5,51 @@
         <li><a href="#contact">Contact</a></li>
         <li><a href="#news">News</a></li>
         <li><a href="#home">Home</a></li>
-        <li style= "float:left;"> sample image here</li>
-      </ul>
-    <div class="card">
-        <div class="header">
-            <H2 class="dashboard">ADMIN DASHBOARD</H2>
-        </div>
-      
-        <div class="dashboardOptions">
-            <p> <a [routerLink]="'/admin/add-question'">View All Questions</a> </p>
-            <p> <a [routerLink]="'/admin/add-question'">Add Questions</a> </p>
-            <p> <a [routerLink]="'/admin/remove-question'">Remove Questions</a> </p>
-            <p> <a [routerLink]="'/admin/add-question'">View Student Report</a> </p>
-        </div>
-    </div>
-    <div Style="float: right; width: 50%; margin-top:100px; padding-right:5%">
-        <h2 style="margin-bottom: 3%;">Add New Questions</h2>
-        <form (ngSubmit)="upload()" enctype="multipart/form-data">
-            <label >Select the subject: </label>
-            <select name="exam" [(ngModel)]=exam_id>
-                <option *ngFor="let i of exam_db" value={{i.exam_id}}>{{i.exam_name}} </option>
-            </select>
+        <li style="float:left;"> sample image here</li>
+    </ul>
 
-            <fieldset *ngIf="exam_id">
-                <legend>Drop File To upload</legend>
-                
-                <input type="hidden" />
-                
-                <div>
-                    <label >Select/ Drag & Drop the question bank file:</label>
-                    <br> 
-                    <input class = "uploadButton" type="file" name="t1" (change)="onFileChange($event)" />
-                    <div id="filedrag">or drop files here</div>
+    <div>
+        <div style="width:50%">
+            <div class="card">
+                <div class="header">
+                    <H2 class="dashboard">ADMIN DASHBOARD</H2>
                 </div>
-                
-                <div>
-                    <button class = "submitButton" type="submit">Upload Files</button>
+
+                <div class="dashboardOptions">
+                    <p> <a [routerLink]="'/admin/add-question'">View All Questions</a> </p>
+                    <p> <a [routerLink]="'/admin/add-question'">Add Questions</a> </p>
+                    <p> <a [routerLink]="'/admin/remove-question'">Remove Questions</a> </p>
+                    <p> <a [routerLink]="'/admin/add-question'">View Student Report</a> </p>
                 </div>
-            
-            </fieldset>
-            
+            </div>
+        </div>
+        <div class="selectFile">
+            <h2 style="margin-bottom: 3%;">Add New Questions</h2>
+            <form (ngSubmit)="upload()" enctype="multipart/form-data">
+                <label>Select the subject: </label>
+                <select name="exam" [(ngModel)]=exam_id>
+                    <option *ngFor="let i of exam_db" value={{i.exam_id}}>{{i.exam_name}} </option>
+                </select>
+
+                <fieldset *ngIf="exam_id">
+                    <legend>Drop File To upload</legend>
+
+                    <input type="hidden" />
+
+                    <div>
+                        <label>Select/ Drag & Drop the question bank file:</label>
+                        <br>
+                        <input class="uploadButton" type="file" name="t1" (change)="onFileChange($event)" />
+                        <div id="filedrag">or drop files here</div>
+                    </div>
+
+                    <div>
+                        <button class="submitButton" type="submit">Upload Files</button>
+                    </div>
+
+                </fieldset>
+
             </form>
+        </div>
     </div>
 </body>

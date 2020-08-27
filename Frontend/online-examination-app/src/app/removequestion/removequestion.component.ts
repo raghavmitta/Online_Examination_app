@@ -36,7 +36,6 @@ export class RemoveQuestionComponent implements OnInit {
   }
 
   readQuestionList() {
-
     console.log(this.exam_id);
     this.service.getQuestionList(this.exam_id).subscribe((data: any) => {
       this.question_bank = data;

@@ -1,52 +1,57 @@
 <body>
     <ul>
-        <li><a href="#profile">User Profile</a></li>
-        <li><a class="active" href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#news">News</a></li>
         <li><a href="#home">Home</a></li>
-        <li style="float:left;"> sample image here</li>
     </ul>
-    <div class="card">
-        <div class="header">
-            <H2 class="dashboard">ADMIN DASHBOARD</H2>
-        </div>
+    <div>
+        <div style="width:50%">
+            <div class="card">
+                <div class="header">
+                    <H2 class="dashboard">ADMIN DASHBOARD</H2>
+                </div>
 
-        <div class="dashboardOptions">
-            <p> <a [routerLink]="'/admin/add-question'">View All Questions</a> </p>
-            <p> <a [routerLink]="'/admin/add-question'">Add Questions</a> </p>
-            <p> <a [routerLink]="'/admin/remove-question'">Remove Questions</a> </p>
-            <p> <a [routerLink]="'/admin/add-question'">View Student Report</a> </p>
+                <div class="dashboardOptions">
+                    <p> <a [routerLink]="'/admin/add-question'">View All Questions</a> </p>
+                    <p> <a [routerLink]="'/admin/add-question'">Add Questions</a> </p>
+                    <p> <a [routerLink]="'/admin/remove-question'">Remove Questions</a> </p>
+                    <p> <a [routerLink]="'/admin/add-question'">View Student Report</a> </p>
+                </div>
+            </div>
+        </div>
+        <div Style="float: left; width: 50%; margin-top:100px; padding-left:5%">
+            <h2 style="margin-bottom: 3%;">Delete Questions</h2>
+            <form (ngSubmit)="readQuestionList()">
+                Select the Subject
+                <select name="exam" [(ngModel)]=exam_id>
+                    <option *ngFor="let i of exam_db" value={{i.exam_id}}>{{i.exam_name}} </option>
+                </select>
+                <br>
+                <input type="submit">
+            </form>
         </div>
     </div>
-    <div Style="float: left; width: 61%; margin-top:100px; padding-left:5%">
-        <h2 style="margin-bottom: 3%;">Delete Questions</h2>
-        <form (ngSubmit)="readQuestionList()">
-            Select the Subject
-            <select name="exam" [(ngModel)]=exam_id>
-                <option *ngFor="let i of exam_db" value={{i.exam_id}}>{{i.exam_name}} </option>
-            </select>
-            <br>
-            <input type="submit">
-        </form>
-
-    </div>
-    <div style="display: block;" *ngIf="visible">
-        Select the question to be deleted:
+    <div *ngIf="visible">
         <form (ngSubmit)="deleteQues()">
-            <table style="width:100%">
+            <table style="width:90%; align-self: center; margin: 5%;">
                 <tr>
-                    <th class="tableNumber"> <!--<input type="checkbox" > All--> Select</th>
-                    <th class="tableNumber">S.No</th>
+                    <th class="tableNumber">Select</th>
                     <th class="tableQuestion">Question</th>
+                    <th class="tableAnswer">Answer</th>
+                    <th class="tableNumber">Level</th>
+                    <th class="tableNumber">Marks</th>
+
                 </tr>
                 <tr *ngFor="let i of question_bank; let j=index;">
-                    <td><input type="checkbox" (click)="addId(question_bank[j].ques_id)" name={{question_id}} value={{question_id}}  > </td> 
-                    <td>{{i.ques_id}}</td>
+                    <td><input type="checkbox" (click)="addId(question_bank[j].ques_id)" name={{question_id}}
+                            value={{question_id}}> </td>
                     <td>{{i.question}}</td>
+                    <td>{{i.correct_answer}}</td>
+                    <td>{{i.question_level}}</td>
+                    <td>{{i.group_name}}</td>
+
                 </tr>
-            </table>
-            <button class="deleteButton" type ="submit">Delete</button>
+            </table>‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎
+                <button class="deleteButton" type="submit">Delete</button>
         </form>
     </div>
 </body>
