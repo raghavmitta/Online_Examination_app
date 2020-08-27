@@ -32,6 +32,10 @@ public class AdminService {
 		return (adminDao.fetchById(Exam_Db.class, examId));
 	}
 	
+	public Question_bank fetchQuestion (int id) {
+		return (adminDao.fetchById(Question_bank.class, id));
+	}
+	
 	public List <Question_bank> fetchQuestionByExamId(int examId){
 		return adminDao.fetchQuestionByExamId(examId);
 	}
@@ -55,6 +59,7 @@ public class AdminService {
 					question.setQuestion_level(Integer.parseInt(split[6]));
 					question.setMarks(Integer.parseInt(split[7]));
 					question.setGroup_name(fileName);
+					question.setActive(1);
 					
 					questionList.add(question);
 				});

@@ -14,7 +14,7 @@ class ReportPdfGeneration {
 		
 	public void generatePdf(List <Detail_report_db> DetailList) throws FileNotFoundException, DocumentException {
 		Document document = new Document();
-		PdfWriter.getInstance(document, new FileOutputStream("d:/uploads/pdf/"+ DetailList.get(0).getReport_id().getReport_id() + "pdf"));
+		PdfWriter.getInstance(document, new FileOutputStream("d:/uploads/pdf/"+ DetailList.get(0).getReport_id().getReport_id() + ".pdf"));
 		document.open();
 		for (Detail_report_db obj : DetailList) {
 			document.add(new Paragraph("Response id: " + obj.getReport_id() + " \n Question: " + obj.getQues_id().getQuestion() + "\n Correct Answer:" + obj.getQues_id().getCorrect_answer() +  "Response:" + obj.getResponse() ));
