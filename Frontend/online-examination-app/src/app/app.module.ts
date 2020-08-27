@@ -13,6 +13,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AddquestionComponent } from './addquestion/addquestion.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { StuportalComponent } from './stuportal/stuportal.component';
+import { SelectexamComponent } from './selectexam/selectexam.component';
 
 
 
@@ -27,7 +29,9 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
     RegisterComponent,
     AddquestionComponent,
     AdmindashboardComponent,
-    RemoveQuestionComponent
+    RemoveQuestionComponent,
+    StuportalComponent,
+    SelectexamComponent
   ],
   imports: [
     BrowserModule,

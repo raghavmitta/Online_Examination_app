@@ -1,11 +1,8 @@
 package com.lti;
 
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
-
+import java.time.LocalDate;
 import java.util.List;
-
-import javax.persistence.EntityManager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,18 +12,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 
 import com.lti.controller.AdminController;
-import com.lti.dao.ExamQuestionsImplement;
-import com.lti.dao.ExamSetupImplement;
+import com.lti.controller.RegisterController;
+import com.lti.dto.AdminViewQuestionDto;
 import com.lti.dto.QuestionDto;
 import com.lti.dto.ResponseDto;
 import com.lti.dto.optionsDto;
-import com.lti.dto.AdminViewQuestionDto;
-import com.lti.entity.Detail_report_db;
 import com.lti.entity.Exam_Db;
+import com.lti.entity.Login_Details;
 import com.lti.entity.Question_bank;
 import com.lti.entity.Student_Info;
-import com.lti.services.ExamEngineServices;
-import com.lti.services.AdminService;
+import com.lti.repository.StudentRepository;
 
 
 @SpringBootTest
@@ -66,6 +61,34 @@ class OnlineExaminationAppApplicationTests {
 	}*/
 	@Autowired
 	private AdminController admin; 
+	
+	@Autowired
+	private StudentRepository sr;
+	
+	@Test
+	public void addUser()
+	{
+		Student_Info s=new Student_Info();
+		Login_Details ls= new Login_Details();
+		ls.setEmail_id("ujjwal@lntinfotech.com");
+		ls.setAccesstype("Student");
+		ls.setPassword("12345");
+		sr.savelogin(ls);
+		
+		s.setStu_id(12);
+		s.setName("Ujjwal");
+		s.setEmail_id(ls);
+		s.setMobile_no(123456);
+		s.setState("Uttrakhand");
+		s.setCity("Dehradun");
+		s.setQualification("B.Tech");
+		s.setDob(LocalDate.of(1999, 01, 18));
+		
+		
+		
+		
+		sr.save(s);
+	}
 	
 	
 	@Test
