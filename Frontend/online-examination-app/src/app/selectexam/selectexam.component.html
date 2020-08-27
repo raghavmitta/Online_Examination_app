@@ -1,1 +1,24 @@
-<p>selectexam works!</p>
+
+<!--<div *ngFor="let e of this.elist">
+    <input type="radio" [id]="e.exam_id" name="opt" [value]="e.exam_id">
+    <label [for]="e.exam_id">{{e.examName}}</label>
+
+</div>-->
+<div class="show">
+<h1>Please Choose Exam From Given Subjects:</h1>
+<div>
+<section>
+    <div *ngFor="let e of this.elist">
+    <div>
+        <input type="radio" [id]="e.exam_id" [(ngModel)]="this.select" name="opt" [value]="e.exam_id" checked>
+        <label [for]="e.exam_id"><h2>{{e.examName}}</h2>
+        <p>Level {{e.level}}</p>
+        </label>
+    </div>
+    </div>
+</section>
+</div>
+<div class="center">
+<button (click)="next()" style="align-content: center;">Next</button>
+</div>
+</div>
