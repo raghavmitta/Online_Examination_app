@@ -79,7 +79,7 @@ public class AdminController {
 	@PostMapping("/file-upload")
 	public Status upload(FileUploadDto fileUploadDto) throws Exception {
 		System.out.println("file upload begins" + fileUploadDto.getExam_id());
-		String fileUploadLocation = "d:/uploads/";
+		String fileUploadLocation = "d:/uploads/csv";
 		String fileName = fileUploadDto.getCsvFile().getOriginalFilename();
 		String targetFile = fileUploadLocation + fileName;
 		try {
