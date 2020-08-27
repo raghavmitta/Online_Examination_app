@@ -25,8 +25,16 @@ public class Question_bank {
     private int question_level;
     private int marks;
     private String group_name;
+	private int active;
 
-    public int getQues_id() {
+
+    public int getActive() {
+		return active;
+	}
+	public void setActive(int active) {
+		this.active = active;
+	}
+	public int getQues_id() {
 		return ques_id;
 	}
 	public void setQues_id(int ques_id) {

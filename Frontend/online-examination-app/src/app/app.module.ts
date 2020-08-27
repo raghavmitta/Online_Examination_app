@@ -15,6 +15,7 @@ import { AddquestionComponent } from './addquestion/addquestion.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { StuportalComponent } from './stuportal/stuportal.component';
 import { SelectexamComponent } from './selectexam/selectexam.component';
+import { PdfGenerateComponent } from './pdf-generate/pdf-generate.component';
 
 
 
@@ -31,7 +32,8 @@ import { SelectexamComponent } from './selectexam/selectexam.component';
     AdmindashboardComponent,
     RemoveQuestionComponent,
     StuportalComponent,
-    SelectexamComponent
+    SelectexamComponent,
+    PdfGenerateComponent
   ],
   imports: [
     BrowserModule,
