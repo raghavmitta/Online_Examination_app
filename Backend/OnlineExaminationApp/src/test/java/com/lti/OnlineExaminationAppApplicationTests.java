@@ -12,16 +12,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 
 import com.lti.controller.AdminController;
+import com.lti.controller.LoginController;
 import com.lti.controller.RegisterController;
 import com.lti.dto.AdminViewQuestionDto;
-import com.lti.dto.QuestionDto;
-import com.lti.dto.ResponseDto;
-import com.lti.dto.optionsDto;
 import com.lti.entity.Exam_Db;
 import com.lti.entity.Login_Details;
 import com.lti.entity.Question_bank;
 import com.lti.entity.Student_Info;
 import com.lti.repository.StudentRepository;
+import com.lti.services.StudentService;
 
 
 @SpringBootTest
@@ -65,31 +64,52 @@ class OnlineExaminationAppApplicationTests {
 	@Autowired
 	private StudentRepository sr;
 	
+	@Autowired
+	private StudentService ss;
+	
+	@Autowired
+	private RegisterController rs;
+	
 	@Test
 	public void addUser()
 	{
-		Student_Info s=new Student_Info();
+		
 		Login_Details ls= new Login_Details();
-		ls.setEmail_id("ujjwal@lntinfotech.com");
+		
+		ls.setEmail_id("bhdfsdfsf@bb.com");
 		ls.setAccesstype("Student");
-		ls.setPassword("12345");
+		ls.setPassword("qwerty123");
 		sr.savelogin(ls);
 		
-		s.setStu_id(12);
-		s.setName("Ujjwal");
+		Student_Info s=new Student_Info();
+		s.setName("Berwerfsd");
 		s.setEmail_id(ls);
 		s.setMobile_no(123456);
-		s.setState("Uttrakhand");
-		s.setCity("Dehradun");
-		s.setQualification("B.Tech");
-		s.setDob(LocalDate.of(1999, 01, 18));
+		s.setState("Uttrakhsdffsanda");
+		s.setCity("Dehradudsfdsfna");
+		s.setQualification("B.Tsdfecha");
+		s.setDob(LocalDate.of(1997, 01, 14));
 		
 		
+		//RegisterController rs= new RegisterController();
+		System.out.println(rs.RegisterUser(s));
 		
-		
-		sr.save(s);
+		//sr.save(s);
 	}
 	
+	@Test
+	void fetchByEmailAndPassword() {
+		LoginController ls= new LoginController();
+	
+		Login_Details login= new Login_Details();
+		login.setEmail_id("ujjwal123@lntinfotech.com");
+		login.setPassword("12345123");
+		System.out.println(ls.LoginUser(login));
+		
+		//Student_Info s=ss.login(login.getEmail_id(), login.getPassword());
+		//System.out.println(ss.login(login.getEmail_id(), login.getPassword()));
+		//System.out.println(s.getName());
+	}	
 	
 	@Test
 	public void addNewExam() {

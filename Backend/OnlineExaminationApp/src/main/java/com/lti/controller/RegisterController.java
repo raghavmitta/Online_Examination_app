@@ -1,30 +1,44 @@
 package com.lti.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.controller.RegisterController.Status.StatusType;
 import com.lti.entity.Student_Info;
 import com.lti.exception.StudentServiceException;
 import com.lti.repository.StudentRepository;
+import com.lti.services.StudentService;
+
+
+@RestController
+@CrossOrigin
 public class RegisterController {
 	
+	@Autowired
 	private StudentRepository studentrepo;
+	
+	@Autowired
+	private StudentService ss;
 
-	@RequestMapping(path="/RegisterUser.api", method=RequestMethod.POST)
+	@RequestMapping(path="/RegisterUser.api", method=RequestMethod.POST) 
 	public Status RegisterUser(@RequestBody Student_Info studentinfo) {
 		try {		
-		studentrepo.RegisterUser(studentinfo);
+		
+			studentrepo.save(studentinfo.getLogin());
+		ss.RegisterUser(studentinfo);
 		Status status = new Status();
 		status.setStatus(StatusType.SUCCESS);
 		status.setMessage("Registration successfull!");
 		return status;
-	}
-	catch(StudentServiceException e) {
+	} 
+	catch(Exception e) {
 		Status status = new Status();
 		status.setStatus(StatusType.FAILURE);
-		status.setMessage(e.getMessage());
+		status.setMessage("Registration failed");
 		return status;
 	}
 }

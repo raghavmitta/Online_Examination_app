@@ -31,12 +31,12 @@
         </form>
 
     </div>
-    <div style="display: block;" *ngIf="visible">
+    <div style="display: block;">
         Select the question to be deleted:
-        <form (ngSubmit)="deleteQues()">
+        <form action="">
             <table style="width:100%">
                 <tr>
-                    <th class="tableNumber"> <!--<input type="checkbox" > All--> Select</th>
+                    <th class="tableNumber"><input type="checkbox"> All</th>
                     <th class="tableNumber">S.No</th>
                     <th class="tableQuestion">Question</th>
                 </tr>
@@ -46,7 +46,7 @@
                     <td>{{i.question}}</td>
                 </tr>
             </table>
-            <button class="deleteButton" type ="submit">Delete</button>
+            <button class="deleteButton">Delete</button>
         </form>
     </div>
 </body>

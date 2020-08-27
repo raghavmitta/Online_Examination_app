@@ -2,6 +2,7 @@ package com.lti.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,7 +18,7 @@ public class Student_Info {
 	 private String name;
 	 @JoinColumn
 	 @OneToOne
-	 private Login_Details email_id;
+	 private Login_Details login;
 	 private int mobile_no;
 	 private String city;
 	 private String state;
@@ -26,7 +27,13 @@ public class Student_Info {
 	 private  int year_of_graduation;
 	 
 	 
-	 public int getStu_id() {
+	 public Login_Details getLogin() {
+		return login;
+	}
+	public void setLogindetails(Login_Details login) {
+		this.login = login;
+	}
+	public int getStu_id() {
 		return stu_id;
 	}
 	public void setStu_id(int stu_id) {
@@ -38,12 +45,7 @@ public class Student_Info {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Login_Details getEmail_id() {
-		return email_id;
-	}
-	public void setEmail_id(Login_Details email_id) {
-		this.email_id = email_id;
-	}
+	
 	public int getMobile_no() {
 		return mobile_no;
 	}
