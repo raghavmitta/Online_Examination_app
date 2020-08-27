@@ -1,5 +1,7 @@
 package com.lti.dao;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.lti.entity.Detail_report_db;
 import com.lti.entity.High_level_report;
 import com.lti.entity.Subject_enrolled;
@@ -50,6 +56,13 @@ public High_level_report PrepareResult(int report_id){
 	report.setScore(score);
 	int passingScore=0;
 	int level=report.getExam_level();
+	try {
+	generatePdf(responselist);
+	}
+	catch(Exception e)
+	{
+		System.out.println("Exception");
+	}
 	switch(level)
 	{
 	case 1:passingScore=report.getExam_id().getPassing_score_level1();
@@ -70,6 +83,17 @@ public High_level_report PrepareResult(int report_id){
 	else
 		report.setStatus("FAIL");
 	return report;
+}
+public void generatePdf(List <Detail_report_db> DetailList) throws FileNotFoundException, DocumentException {
+	Document document = new Document();
+	PdfWriter.getInstance(document, new FileOutputStream("d:/uploads/pdf/"+ DetailList.get(0).getReport_id().getReport_id() + "pdf"));
+	document.open();
+	for (Detail_report_db obj : DetailList) {
+		document.add(new Paragraph("Response id: " + obj.getReport_id() + " \n Question: " + obj.getQues_id().getQuestion() + "\n Correct Answer:" + obj.getQues_id().getCorrect_answer() +  "Response:" + obj.getResponse() ));
+
+	}
+
+	document.close();
 }
 	
 

@@ -79,7 +79,7 @@ public class AdminController {
 	@PostMapping("/file-upload")
 	public Status upload(FileUploadDto fileUploadDto) throws Exception {
 		System.out.println("file upload begins" + fileUploadDto.getExam_id());
-		String fileUploadLocation = "d:/uploads/";
+		String fileUploadLocation = "d:/uploads/csv";
 		String fileName = fileUploadDto.getCsvFile().getOriginalFilename();
 		String targetFile = fileUploadLocation + fileName;
 		try {
@@ -104,17 +104,23 @@ public class AdminController {
 	@PostMapping("/delete-question")
 	public Status upload(@RequestBody int indexes[]) {
 		try {
-			System.out.println(indexes[0] + " " + indexes[1] + " " + indexes[2]);
+			for(int i=0; i<indexes.length; i++) {
+			Question_bank question_bank = new Question_bank();
+			question_bank = adminService.fetchQuestion(indexes[i]);
+			question_bank.setActive(0);
+			adminService.save(question_bank);
 			Status status = new Status();
 			status.setStatus(StatusType.SUCCESS);
 			status.setMessage("Questions deleted successfully!");
 			return status;
+			}
 		} catch (Exception e) {
 			Status status = new Status();
 			status.setStatus(StatusType.FAILURE);
 			status.setMessage(e.getMessage());
 			return status;
 		}
+		return null;
 
 	}
 
