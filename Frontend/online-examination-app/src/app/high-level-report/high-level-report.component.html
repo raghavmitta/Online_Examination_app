@@ -1,0 +1,24 @@
+<!-- <div *ngFor="let i of high_level_report">{{i.exam_id}}</div>  -->
+
+
+<body>
+    <div class="container">
+    <fieldset *ngFor="let i of high_level_report">
+        <legend>Report</legend>
+    <label [for]="name">Name: {{i.name}} </label>
+    <br/>
+    <label [for]="examid">Exam ID:{{i.exam_id}}</label>
+    <br/>
+    <label [for]="score">Score: {{i.score}}</label>
+    <br/>
+    <label [for]="level">Level:{{i.exam_level}}</label>
+    <br/>
+    <label [for]="starttime">Starting Time:{{i.starting_time}}</label>
+    <br/>
+    <label [for]="endtime">Ending Time:{{i.ending_time}}</label>
+    <br/>
+    <label [for]="examdate">Exam Date:{{i.exam_date}}</label>
+    <br/>
+    </fieldset>
+    </div>
+</body>
