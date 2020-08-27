@@ -5,6 +5,6 @@ import com.lti.entity.Student_Info;
 public interface StudentService {
 
 	void RegisterUser(Student_Info studentinfo);
-	Student_Info login(String email, String password);
-
+	Student_Info login(String email, String password)throws Exception;
+	void save(Object obj);
 }

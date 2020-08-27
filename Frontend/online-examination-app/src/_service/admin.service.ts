@@ -22,9 +22,4 @@ export class AdminService {
     let url='http://localhost:8585/file-upload';
     return this.http.post(url, formData);
   }
-
-  deleteQuestion(toDelete: number[]){
-    let url="http://localhost:8585/delete-question";
-    return this.http.post(url,toDelete)
-  }
 }

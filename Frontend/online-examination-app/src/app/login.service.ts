@@ -12,7 +12,7 @@ export class LoginService {
   router: Router;
   constructor(private http : HttpClient) { }
   LoginUser(login: Login){
-    let url='http://localhost:8181/OnlineExaminationApp/Login.api';
+    let url='http://localhost:8585/Login.api';
     return this.http.post(url, login);
     /*
     if(this.idobj.id=-1)

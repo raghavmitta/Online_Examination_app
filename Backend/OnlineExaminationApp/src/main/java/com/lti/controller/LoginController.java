@@ -1,22 +1,29 @@
 package com.lti.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.controller.LoginController.Status.StatusType;
 import com.lti.entity.Login_Details;
 import com.lti.entity.Student_Info;
-import com.lti.services.StudentService;
 import com.lti.exception.StudentServiceException;
+import com.lti.services.StudentService;
 
+@RestController
+@CrossOrigin
 public class LoginController {
 
+	@Autowired
 	private StudentService studentservice;
 	
 	@RequestMapping(path="/Login.api", method=RequestMethod.POST)
-	public int LoginUser(@RequestBody Login_Details logindetails) {
+	public LoginStatus LoginUser(@RequestBody Login_Details logindetails){
 		try {
+			//System.out.println(logindetails.getEmail_id()+ logindetails.getPassword());
 			Student_Info student= studentservice.login(logindetails.getEmail_id(), logindetails.getPassword());
 			LoginStatus loginStatus=new LoginStatus();
 			loginStatus.setStatus(StatusType.SUCCESS);
@@ -26,17 +33,22 @@ public class LoginController {
 			
 			String atype=logindetails.getAccesstype();
 			if(atype=="admin")
-				return -2;
+			{
+				loginStatus.setStatusCode(-2);
+			}
 			else
-				return student.getStu_id();
+				loginStatus.setStatusCode(student.getStu_id());
+			
+			return loginStatus;
 			
 		}
-		catch(StudentServiceException e){
+		catch(Exception e){
 			LoginStatus loginStatus=new LoginStatus();
 			loginStatus.setStatus(StatusType.FAILURE);
 			loginStatus.setMessage(e.getMessage());
-			return -1;
+			loginStatus.setStatusCode(-1);
 			
+			return loginStatus;
 		}
 	}
 		public static class LoginStatus extends Status{
@@ -61,7 +73,17 @@ public class LoginController {
 		public static class Status {
 			private StatusType status;
 			private String message;
+			private int statusCode;
 			
+			
+			public int getStatusCode() {
+				return statusCode;
+			}
+
+			public void setStatusCode(int statusCode) {
+				this.statusCode = statusCode;
+			}
+
 			public static enum StatusType {
 				SUCCESS, FAILURE;
 			}

@@ -22,8 +22,8 @@ public class StudentRepositoryImplement implements StudentRepository{
 	}
 
 	@Transactional
-	public void save(Student_Info studentinfo) {
-		entityManager.merge(studentinfo);
+	 public void save (Object obj) {
+        entityManager.merge(obj);
     }
 	
 	@Transactional
@@ -39,16 +39,23 @@ public class StudentRepositoryImplement implements StudentRepository{
 	@Override
 	public boolean isUserPresent(String email){
 		return (Long) entityManager
-				.createQuery("select count(s.id) from Student_Info s where s.email = :em")
+				.createQuery("select count(s.id) from Student_Info s where s.email_id.email_id = :em")
 				.setParameter("em", email)
 				.getSingleResult() == 1 ? true : false;
 	}
 	@Override
 	public int findByEmailAndPassword(String email,String password) {
-		return (Integer) entityManager
-				.createQuery("select s.id from Student_Info s where s.email=:em and s.password= :pw")
+		try {
+		return (int) entityManager
+				.createQuery("select s.stu_id from Student_Info s where s.login.email_id=:em and s.login.password= :pw")
 				.setParameter("em", email)
 				.setParameter("pw", password)
 				.getSingleResult();
+		}
+		catch(Exception e) {
+			System.out.println(e);
+			return -1;
+		}
+		
 	}
 }

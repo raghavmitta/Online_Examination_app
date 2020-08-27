@@ -7,6 +7,9 @@ import javax.persistence.Id;
 public class Login_Details {
 	@Id
 	private String email_id;
+	
+	private String password;
+	private String accesstype;
 	public String getEmail_id() {
 		return email_id;
 	}
@@ -25,7 +28,6 @@ public class Login_Details {
 	public void setAccesstype(String accesstype) {
 		this.accesstype = accesstype;
 	}
-	private String password;
-	private String accesstype;
+	
 
 }

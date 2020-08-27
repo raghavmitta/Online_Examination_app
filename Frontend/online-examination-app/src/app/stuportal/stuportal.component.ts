@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'stuportal',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StuportalComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private router: Router) { }
+  
   ngOnInit(): void {
+    sessionStorage.getItem('name');
   }
 
+  finish(){
+    sessionStorage.clear()
+    this.router.navigate(['login']);
+  }
 }
