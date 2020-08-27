@@ -20,6 +20,7 @@ public class GenericDao {
 	
 	//generic function to fetch record via primarykey.
 	public <T> T fetchById(Class<T> clazz, int pk) {
+		System.out.println("in generic dao");
 		return entityManager.find(clazz, pk);
 	}
 	

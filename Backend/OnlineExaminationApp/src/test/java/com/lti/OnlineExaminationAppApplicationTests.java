@@ -81,24 +81,26 @@ class OnlineExaminationAppApplicationTests {
 		
 		admin.addSubject(e);
 	}
-	@Test
-	public void Servicestest() {
-		List<QuestionDto> questions=services.getquestions(43);
-		for(QuestionDto q :questions)
-		{
-			System.out.println(q.getQuestion());
-			for(optionsDto opt:q.getOptions())
-			{
-				System.out.println(opt.getOption());
-			}
-		}}
-		@Test
-	public void Servicetest2() {
-			ResponseDto r=new ResponseDto();
-			r.setReponse("Use of pointers");
-			r.setResponse_id(45);
-			services.saveResponse(r);
-		}
+	
+//	@Test
+//	public void Servicestest() {
+//		List<QuestionDto> questions=services.getquestions(43);
+//		for(QuestionDto q :questions)
+//		{
+//			System.out.println(q.getQuestion());
+//			for(optionsDto opt:q.getOptions())
+//			{
+//				System.out.println(opt.getOption());
+//			}
+//		}}
+//	
+//		@Test
+//	public void Servicetest2() {
+//			ResponseDto r=new ResponseDto();
+//			r.setReponse("Use of pointers");
+//			r.setResponse_id(45);
+//			services.saveResponse(r);
+//		}
 		
 	
 
@@ -126,7 +128,7 @@ class OnlineExaminationAppApplicationTests {
 	@Test
 	public void fetchExam() {
 		Exam_Db e = admin.fetchSubjetById(2);
-		System.out.println(e.getExam_id() + " " + e.getExam_name());
+		System.out.println(e.getExam_id() + " " + e.getExam_name()+ " " + e.getDuration_level1()+ " " + e.getDuration_level2()+ " " + e.getDuration_level3()+ " " + e.getPassing_score_level1()+ " " + e.getPassing_score_level2()+ " " + e.getPassing_score_level3());
 	}
 	
 	@Test

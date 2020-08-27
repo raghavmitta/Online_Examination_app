@@ -55,7 +55,7 @@ public class AdminController {
 			status.setStatus(StatusType.SUCCESS);
 			status.setMessage("Questions added successfully!");
 			return status;
-		} catch(Exception e) {
+		} catch (Exception e) {
 			Status status = new Status();
 			status.setStatus(StatusType.FAILURE);
 			status.setMessage(e.getMessage());
@@ -73,12 +73,12 @@ public class AdminController {
 			list.add(adminViewQuestionDto);
 		}
 		return list;
-		
+
 	}
-	
+
 	@PostMapping("/file-upload")
 	public Status upload(FileUploadDto fileUploadDto) throws Exception {
-		System.out.println("file upload begins"+fileUploadDto.getExam_id());
+		System.out.println("file upload begins" + fileUploadDto.getExam_id());
 		String fileUploadLocation = "d:/uploads/";
 		String fileName = fileUploadDto.getCsvFile().getOriginalFilename();
 		String targetFile = fileUploadLocation + fileName;
@@ -93,12 +93,29 @@ public class AdminController {
 			return status;
 		}
 		System.out.println("running readfile");
-		adminService.readFile(fileUploadDto.getExam_id(),fileName, targetFile);
+		adminService.readFile(fileUploadDto.getExam_id(), fileName, targetFile);
 		System.out.println("readfile complete");
 		Status status = new Status();
 		status.setStatus(StatusType.SUCCESS);
 		status.setMessage("Uploaded!");
 		return status;
+	}
+
+	@PostMapping("/delete-question")
+	public Status upload(@RequestBody int indexes[]) {
+		try {
+			System.out.println(indexes[0] + " " + indexes[1] + " " + indexes[2]);
+			Status status = new Status();
+			status.setStatus(StatusType.SUCCESS);
+			status.setMessage("Questions deleted successfully!");
+			return status;
+		} catch (Exception e) {
+			Status status = new Status();
+			status.setStatus(StatusType.FAILURE);
+			status.setMessage(e.getMessage());
+			return status;
+		}
+
 	}
 
 //	public List<Question_bank> fetchQuestionByExamId ( int examId) {

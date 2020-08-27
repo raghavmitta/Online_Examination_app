@@ -12,7 +12,8 @@ export class RemoveQuestionComponent implements OnInit {
   question_bank: Question_Bank[];
   exam_id: number;
   selectedQuestionId: number[];
-  toDelete: any[] = [];
+  toDelete: number[] = [];
+  visible: number;
   counter: number = 0;
   constructor(private service: AdminService) { }
 
@@ -31,7 +32,7 @@ export class RemoveQuestionComponent implements OnInit {
       this.toDelete.splice(index, 1);
     }
     console.log(this.toDelete);
-    
+
   }
 
   readQuestionList() {
@@ -39,7 +40,14 @@ export class RemoveQuestionComponent implements OnInit {
     console.log(this.exam_id);
     this.service.getQuestionList(this.exam_id).subscribe((data: any) => {
       this.question_bank = data;
+      this.visible = 1;
       console.log(data);
+    });
+  }
+
+  deleteQues() {
+    this.service.deleteQuestion(this.toDelete).subscribe((data: any) => {
+      this.question_bank = data;
     });
   }
 
