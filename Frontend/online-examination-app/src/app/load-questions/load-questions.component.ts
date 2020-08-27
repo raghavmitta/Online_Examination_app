@@ -19,7 +19,10 @@ export class LoadQuestionsComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+    
+  }
   submit(){
       this.qlist.forEach(element=>{
       this.resObject.response_id=element.responseid

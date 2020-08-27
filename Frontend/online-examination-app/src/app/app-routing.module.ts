@@ -8,7 +8,7 @@ import { ExaminationInstructionComponent } from "./examination-instruction/exami
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoadQuestionsComponent } from './load-questions/load-questions.component';
-import { ShowresultComponent } from './showresult/showresult.component';
+import { StuportalComponent } from './stuportal/stuportal.component';
 import { SelectexamComponent } from './selectexam/selectexam.component';
 
 const routes: Routes = [
@@ -20,8 +20,8 @@ const routes: Routes = [
 {path: 'admin/admin-dashboard', component:AdmindashboardComponent},
 {path: 'admin/add-question', component:AddquestionComponent},
 {path: 'admin/remove-question', component:RemoveQuestionComponent},
-{path: 'showresult', component:ShowresultComponent},
-{path:'selectexam',component:SelectexamComponent}
+{path: 'stuportal', component:StuportalComponent},
+{path: 'selectexam', component:SelectexamComponent},
 ];
 
 @NgModule({

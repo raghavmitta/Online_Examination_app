@@ -3,10 +3,13 @@ package com.lti.repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.lti.entity.Login_Details;
 import com.lti.entity.Student_Info;
 
+@Repository
 public class StudentRepositoryImplement implements StudentRepository{
 
 	@PersistenceContext //@Autowired does not work for injecting EntityManager
@@ -21,6 +24,11 @@ public class StudentRepositoryImplement implements StudentRepository{
 	@Transactional
 	public void save(Student_Info studentinfo) {
 		entityManager.merge(studentinfo);
+    }
+	
+	@Transactional
+	public void savelogin(Login_Details ls) {
+		entityManager.merge(ls);
     }
 
 	@Override
