@@ -1,0 +1,40 @@
+h1{
+    color:#008CBA;
+    text-align:center;
+    padding-top: 50px;
+
+  }
+  label {
+    font-size: 20px;
+    font-weight: 700;
+    color: #045181;
+    text-align: center;
+    line-height: 50px;
+    display: inline-block;
+    font-weight: bold;
+    width: 100%;   
+  }
+  .container{
+      text-align: center;
+      float:center;
+      margin-bottom:20px;
+  }
+  
+
+  fieldset {
+    border: 1px solid #CCA383;
+    width: 50%;
+    background: #FFE8EF;
+    padding: 3px;
+    float: center;
+    margin-top: 50px;
+    margin-left:25%; 
+    }
+    fieldset legend {
+        background: whitesmoke;
+        padding: 6px;
+        font-weight: italic;
+        color:#008CBA;
+        text-align:center;
+        font-size:50px;     
+        }
