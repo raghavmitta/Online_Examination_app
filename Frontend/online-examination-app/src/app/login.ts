@@ -1,4 +1,4 @@
 export class Login{
-    email_id: string;
+    username: string;
     password: string;
 }

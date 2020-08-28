@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Exam_db } from "src/_model/exam_db";
 import { Question_Bank } from "src/_model/question_bank";
 import { AdminService } from "src/_service/admin.service";
+import { Router } from '@angular/router';
 @Component({
   selector: 'removequestion',
   templateUrl: './removequestion.component.html',
@@ -12,9 +13,10 @@ export class RemoveQuestionComponent implements OnInit {
   question_bank: Question_Bank[];
   exam_id: number;
   selectedQuestionId: number[];
-  toDelete: any[] = [];
+  toDelete: number[] = [];
+  visible: number;
   counter: number = 0;
-  constructor(private service: AdminService) { }
+  constructor(private service: AdminService, private router: Router) { }
 
   ngOnInit(): void {
     this.service.getSubjectList().subscribe((data: any) => {
@@ -30,15 +32,21 @@ export class RemoveQuestionComponent implements OnInit {
     } else {
       this.toDelete.splice(index, 1);
     }
-    console.log(this.toDelete);
-    
+
   }
 
   readQuestionList() {
     console.log(this.exam_id);
     this.service.getQuestionList(this.exam_id).subscribe((data: any) => {
       this.question_bank = data;
-      console.log(data);
+      this.visible = 1;
+    });
+  }
+
+  deleteQues() {
+    this.service.deleteQuestion(this.toDelete).subscribe((data: any) => {
+      this.question_bank = data;
+      this.router.navigate(['success'])
     });
   }
 

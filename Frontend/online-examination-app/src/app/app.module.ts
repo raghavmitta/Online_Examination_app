@@ -17,6 +17,7 @@ import { StuportalComponent } from './stuportal/stuportal.component';
 import { SelectexamComponent } from './selectexam/selectexam.component';
 import { PdfGenerateComponent } from './pdf-generate/pdf-generate.component';
 import { AdminSuccessComponent } from './admin-success/admin-success.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 
 
@@ -35,7 +36,8 @@ import { AdminSuccessComponent } from './admin-success/admin-success.component';
     StuportalComponent,
     SelectexamComponent,
     PdfGenerateComponent,
-    AdminSuccessComponent
+    AdminSuccessComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,

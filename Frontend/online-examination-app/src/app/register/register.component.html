@@ -18,12 +18,12 @@
         </div>
         <div>
             Email
-            <input type="email" name="email" required="" placeholder="Email" [(ngModel)]=register.login.email_id #email="ngModel"> 
+            <input type="email" name="email" required="" placeholder="Email" [(ngModel)]=register.email #email="ngModel"> 
              
         </div>
         <div>
             Password:
-            <input type="password" id="psw" name="pass" required minlength="8"  [(ngModel)]=register.login.password #password="ngModel" >
+            <input type="password" id="psw" name="pass" required minlength="8"  [(ngModel)]=register.password #password="ngModel" >
             <div *ngIf="password.touched" class="alert alert-danger">
                 
                 <div *ngIf="name.errors.minlength">

@@ -32,7 +32,7 @@ export class AddquestionComponent implements OnInit {
     formData.append('exam_id', this.exam_id);
     formData.append('csvFile', this.csvFile);
     this.service.upload(formData).subscribe(data => {
-      this.router.navigate(['/admin/admin-dashboard'])
+      this.router.navigate(['success'])
     })
   }
 }

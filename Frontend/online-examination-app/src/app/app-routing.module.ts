@@ -10,6 +10,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoadQuestionsComponent } from './load-questions/load-questions.component';
 import { StuportalComponent } from './stuportal/stuportal.component';
 import { SelectexamComponent } from './selectexam/selectexam.component';
+import { AdminSuccessComponent } from './admin-success/admin-success.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 const routes: Routes = [
 {path:'',component:HomeComponent}, 
@@ -22,6 +24,8 @@ const routes: Routes = [
 {path: 'admin/remove-question', component:RemoveQuestionComponent},
 {path: 'stuportal', component:StuportalComponent},
 {path: 'selectexam', component:SelectexamComponent},
+{path: 'success', component:AdminSuccessComponent},
+{path: 'contactus', component:ContactusComponent }
 ];
 
 @NgModule({
