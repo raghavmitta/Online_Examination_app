@@ -1,7 +1,10 @@
 <body>
     <ul>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#home">Home</a></li>
+        <li><a [routerLink]="''">About</a></li>
+        <li><a [routerLink]="'/contactus'">Contact</a></li>
+        <li><a [routerLink]="''">Home</a></li>
+        <h1 class="lti">LTI</h1>
+
     </ul>
     <div>
         <div style="width:50%">
@@ -11,7 +14,6 @@
                 </div>
 
                 <div class="dashboardOptions">
-                    <p> <a [routerLink]="'/admin/add-question'">View All Questions</a> </p>
                     <p> <a [routerLink]="'/admin/add-question'">Add Questions</a> </p>
                     <p> <a [routerLink]="'/admin/remove-question'">Remove Questions</a> </p>
                     <p> <a [routerLink]="'/admin/add-question'">View Student Report</a> </p>

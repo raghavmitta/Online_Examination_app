@@ -12,7 +12,7 @@ export class AddquestionComponent implements OnInit {
 
   exam_db: Exam_db[];
   csvFile: any;
-  exam_id : any;
+  exam_id: any;
 
   constructor(private service: AdminService, private router: Router) { }
 
@@ -23,7 +23,7 @@ export class AddquestionComponent implements OnInit {
     );
   }
 
-  onFileChange(event){
+  onFileChange(event) {
     this.csvFile = event.target.files[0];
   }
 

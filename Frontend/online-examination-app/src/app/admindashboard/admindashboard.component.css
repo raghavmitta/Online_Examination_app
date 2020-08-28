@@ -1,3 +1,7 @@
+.lti {
+    margin-left: 20px;
+    color: white
+}
 
 ul {
     list-style-type: none;
@@ -5,50 +9,56 @@ ul {
     padding: 1.1%;
     overflow: hidden;
     background-color: rgb(5, 66, 134);
-    }
+}
 
-    li {
+li {
     float: right;
-    }
+}
 
-    li a {
+li a {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 30px;
     text-decoration: none;
     font-size: 150%;
-    }
+}
 
-    li a:hover:not(.active) {
+li a:hover:not(.active) {
     background-color: #111;
-    }
+}
+
 div.card {
     margin-top: 100px;
     margin-left: 100px;
     width: 350px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
+}
+
 div.container {
     padding: 10px;
-    }
-H2.dashboard{
+}
+
+H2.dashboard {
     margin-top: 0%;
     margin-bottom: 0%;
-    background-color: rgb(23, 162, 197); 
-    padding: 7%; 
+    background-color: rgb(23, 162, 197);
+    padding: 7%;
     color: white;
     text-align: center;
-    }
-div.dashboardOptions{
+}
+
+div.dashboardOptions {
     background-color: rgb(5, 66, 134);
     padding: 2%;
-    }
-p{
-    margin:0%;
-    padding:4%;
-    }
-a{
+}
+
+p {
+    margin: 0%;
+    padding: 4%;
+}
+
+a {
     text-decoration: none;
     color: white;
-    }
+}
